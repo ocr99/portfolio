@@ -10,6 +10,11 @@ body {
     accent-color: var(--contrastcolor);
 }
 
+footer {
+    color: var(--textcolor);
+    accent-color: var(--contrastcolor);
+}
+
 .knowme {
     border: 2px solid currentColor;
     border-radius: 3rem;
