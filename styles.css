@@ -1,11 +1,16 @@
 :root {
     --maincolor: #5d7446;
     --textcolor: #131411;
-    --contrastcolor: #EDECED;
+    --contrastcolor: #D9DDDE;
 }
 
 body {
     background-color: var(--maincolor);
+    color: var(--textcolor);
+    accent-color: var(--contrastcolor);
+}
+
+footer {
     color: var(--textcolor);
     accent-color: var(--contrastcolor);
 }
