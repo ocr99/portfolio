@@ -1,10 +1,19 @@
-body{
-    background-color: #606C38;
+:root {
+    --maincolor: #5d7446;
+    --textcolor: #131411;
+    --contrastcolor: #EDECED;
 }
+
+body {
+    background-color: var(--maincolor);
+    color: var(--textcolor);
+    accent-color: var(--contrastcolor);
+}
+
 .knowme {
     border: 2px solid currentColor;
     border-radius: 3rem;
-    color: #606C38;
+    color: var(--maincolor);
     overflow: hidden;
     padding: 1rem 2rem;
     position: relative;
@@ -14,7 +23,7 @@ body{
     z-index: 0;
   }
   .knowme::after {
-    background-color: #606C38;
+    background-color: var(--maincolor);
     border-radius: 3rem;
     content: '';
     display: block;
@@ -34,11 +43,11 @@ body{
   }
   .knowme:hover {
     border: 2px solid transparent;
-    color: #FEFAE0;
+    color: var(--contrastcolor);
     transform: scale(1.05);
     will-change: transform;
   }
   .contrastcolor {
-    color: #FEFAE0;
+    color: var(--contrastcolor);
     font-style: normal;
   }
