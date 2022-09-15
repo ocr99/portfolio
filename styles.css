@@ -1,7 +1,7 @@
 body{
     background-color: #606C38;
 }
-.coolBeans {
+.knowme {
     border: 2px solid currentColor;
     border-radius: 3rem;
     color: #606C38;
@@ -13,7 +13,7 @@ body{
     will-change: transform;
     z-index: 0;
   }
-  .coolBeans::after {
+  .knowme::after {
     background-color: #606C38;
     border-radius: 3rem;
     content: '';
@@ -29,10 +29,10 @@ body{
     will-change: transform;
     z-index: -1;
   }
-  .coolBeans:hover::after {
+  .knowme:hover::after {
     transform: translate(0, 0);
   }
-  .coolBeans:hover {
+  .knowme:hover {
     border: 2px solid transparent;
     color: #FEFAE0;
     transform: scale(1.05);
