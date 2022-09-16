@@ -34,7 +34,7 @@
     const onscroll = (el, listener) => {
         el.addEventListener('scroll', listener)
     }
-
+  
     /**
      * Navbar links active state on scroll
      */
@@ -55,7 +55,7 @@
     }
     window.addEventListener('load', navbarlinksActive)
     onscroll(document, navbarlinksActive)
-
+  
     /**
      * Scrolls to an element with header offset
      */
@@ -66,7 +66,24 @@
             behavior: 'smooth'
         })
     }
-
+  
+    /**
+     * Back to top button
+     */
+    let backtotop = select('.back-to-top')
+    if (backtotop) {
+        const toggleBacktotop = () => {
+            if (window.scrollY > 100) {
+                backtotop.classList.add('active')
+            } 
+            else {
+                backtotop.classList.remove('active')
+            }
+        }
+        window.addEventListener('load', toggleBacktotop)
+        onscroll(document, toggleBacktotop)
+    }
+  
     /**
      * Mobile nav toggle
      */
@@ -75,7 +92,7 @@
         this.classList.toggle('bi-list')
         this.classList.toggle('bi-x')
     })
-
+  
     /**
      * Scrool with ofset on links with a class name .scrollto
      */
@@ -93,7 +110,7 @@
             scrollto(this.hash)
         }
     }, true)
-
+  
     /**
      * Scroll with ofset on page load with hash links in the url
      */
@@ -104,7 +121,7 @@
             }
         }
     });
-
+  
     /**
      * Preloader
      */
@@ -114,16 +131,16 @@
         preloader.remove()
         });
     }
-
+  
     /**
      * Animation on scroll
      */
     window.addEventListener('load', () => {
         AOS.init({
-        duration: 1000,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
         })
     });
 
