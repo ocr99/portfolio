@@ -6,6 +6,7 @@
   --maincolor: #5d7446;
   --textcolor: #131411;
   --contrastcolor: #D9DDDE;
+  --accentcolor: #283618;
 }
 
 /*--------------------------------------------------------------
@@ -345,7 +346,7 @@ section {
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  color: #45505b;
+  color: var(--textcolor);
 }
 
 .section-title h2::before {
@@ -354,7 +355,7 @@ section {
   display: block;
   width: 120px;
   height: 1px;
-  background: #ddd;
+  background: var(--accentcolor);
   bottom: 1px;
   left: calc(50% - 60px);
 }
@@ -365,7 +366,7 @@ section {
   display: block;
   width: 40px;
   height: 3px;
-  background: #0563bb;
+  background: var(--contrastcolor);
   bottom: 0;
   left: calc(50% - 20px);
 }
@@ -380,7 +381,7 @@ section {
 .about .content h3 {
   font-weight: 700;
   font-size: 26px;
-  color: #728394;
+  color: var(--textcolor);
 }
 
 .about .content ul {
@@ -401,7 +402,7 @@ section {
 .about .content ul i {
   font-size: 16px;
   margin-right: 5px;
-  color: #0563bb;
+  color: var(--contrastcolor);
   line-height: 0;
 }
 
