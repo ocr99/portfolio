@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "Oscar Lopez Conde Portfolio",
+  "short_name": "Oscar's Portfolio",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#283618",
+  "background_color": "#5d7446",
   "display": "standalone"
 }
