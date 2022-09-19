@@ -1,6 +1,6 @@
-(function() {
+(function () {
     "use strict";
-    
+
     /**
      * Easy selector helper function
      */
@@ -8,7 +8,7 @@
         el = el.trim()
         if (all) {
             return [...document.querySelectorAll(el)]
-        } 
+        }
         else {
             return document.querySelector(el)
         }
@@ -34,7 +34,7 @@
     const onscroll = (el, listener) => {
         el.addEventListener('scroll', listener)
     }
-  
+
     /**
      * Navbar links active state on scroll
      */
@@ -47,7 +47,7 @@
             if (!section) return
             if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
                 navbarlink.classList.add('active')
-            } 
+            }
             else {
                 navbarlink.classList.remove('active')
             }
@@ -55,7 +55,7 @@
     }
     window.addEventListener('load', navbarlinksActive)
     onscroll(document, navbarlinksActive)
-  
+
     /**
      * Scrolls to an element with header offset
      */
@@ -66,7 +66,7 @@
             behavior: 'smooth'
         })
     }
-  
+
     /**
      * Back to top button
      */
@@ -75,7 +75,7 @@
         const toggleBacktotop = () => {
             if (window.scrollY > 100) {
                 backtotop.classList.add('active')
-            } 
+            }
             else {
                 backtotop.classList.remove('active')
             }
@@ -83,20 +83,20 @@
         window.addEventListener('load', toggleBacktotop)
         onscroll(document, toggleBacktotop)
     }
-  
+
     /**
      * Mobile nav toggle
      */
-    on('click', '.mobile-nav-toggle', function(e) {
+    on('click', '.mobile-nav-toggle', function (e) {
         select('body').classList.toggle('mobile-nav-active')
         this.classList.toggle('bi-list')
         this.classList.toggle('bi-x')
     })
-  
+
     /**
      * Scrool with ofset on links with a class name .scrollto
      */
-    on('click', '.scrollto', function(e) {
+    on('click', '.scrollto', function (e) {
         if (select(this.hash)) {
             e.preventDefault()
 
@@ -110,9 +110,9 @@
             scrollto(this.hash)
         }
     }, true)
-  
+
     /**
-     * Scroll with ofset on page load with hash links in the url
+     * Scroll with offset on page load with hash links in the url
      */
     window.addEventListener('load', () => {
         if (window.location.hash) {
@@ -121,17 +121,17 @@
             }
         }
     });
-  
+
     /**
      * Preloader
      */
     let preloader = select('#preloader');
     if (preloader) {
         window.addEventListener('load', () => {
-        preloader.remove()
+            preloader.remove()
         });
     }
-  
+
     /**
      * Animation on scroll
      */
@@ -148,16 +148,15 @@
      * Calculate Age Automatically
      */
     window.addEventListener('load', () => {
-         let today = new Date();
-         let year = today.getUTCFullYear();
-         let month = today.getUTCMonth();
-         var valueToChange = document.getElementById("currentAge");
-         let beforeB = "" + (year - 2000);
-         let afterB = "" + (year - 1999);
- 
-     
-         if (month >= 7) valueToChange.textContent = afterB;
-         else valueToChange.textContent = beforeB;
+        let today = new Date();
+        let year = today.getUTCFullYear();
+        let month = today.getUTCMonth();
+        var valueToChange = document.getElementById("currentAge");
+        let beforeB = "" + (year - 2000);
+        let afterB = "" + (year - 1999);
+
+        if (month >= 7) valueToChange.textContent = afterB;
+        else valueToChange.textContent = beforeB;
     });
 
 })()
