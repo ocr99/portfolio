@@ -90,7 +90,7 @@ a:hover {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #0563bb;
+  background: var(--accentcolor);
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -99,13 +99,13 @@ a:hover {
 
 .back-to-top i {
   font-size: 28px;
-  color: #fff;
+  color: var(--contrastcolor);
   line-height: 0;
 }
 
 .back-to-top:hover {
-  background: #0678e3;
-  color: #fff;
+  background: var(--textcolor);
+  color: var(--contrastcolor);
 }
 
 .back-to-top.active {
@@ -124,7 +124,7 @@ a:hover {
   bottom: 0;
   z-index: 9999;
   overflow: hidden;
-  background: #fff;
+  background: var(--maincolor);
 }
 
 #preloader:before {
@@ -132,9 +132,9 @@ a:hover {
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #0563bb;
-  border-top-color: #fff;
-  border-bottom-color: #fff;
+  border: 6px solid var(--accentcolor);
+  border-top-color: var(--textcolor);
+  border-bottom-color: var(--textcolor);
   border-radius: 50%;
   width: 60px;
   height: 60px;
