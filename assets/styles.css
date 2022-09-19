@@ -226,13 +226,13 @@ a:hover {
 .nav-menu a:focus {
   display: flex;
   align-items: center;
-  color: #45505b;
+  color: var(--contrastcolor);
   padding: 10px 18px;
   margin-bottom: 8px;
   transition: 0.3s;
   font-size: 15px;
   border-radius: 50px;
-  background: #f2f3f5;
+  background: var(--accentcolor);
   height: 56px;
   width: 100%;
   overflow: hidden;
@@ -247,7 +247,7 @@ a:hover {
 .nav-menu a span,
 .nav-menu a:focus span {
   padding: 0 5px 0 7px;
-  color: #45505b;
+  color: var(--contrastcolor);
 }
 
 @media (min-width: 992px) {
@@ -269,7 +269,8 @@ a:hover {
 .nav-menu .active:focus,
 .nav-menu li:hover>a {
   color: #fff;
-  background: #0563bb;
+  /* background: #3b462f; */
+  background: var(--textcolor);
 }
 
 .nav-menu a:hover span,
@@ -323,7 +324,7 @@ a:hover {
 
 .mobile-nav-active .mobile-nav-toggle {
   color: #fff;
-  background-color: #0563bb;
+  background-color: var(--textcolor);
 }
 
 /*--------------------------------------------------------------
