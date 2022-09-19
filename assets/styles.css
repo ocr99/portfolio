@@ -489,7 +489,7 @@ section {
   margin: 0 auto 25px auto;
   list-style: none;
   text-align: center;
-  background: #fff;
+  background: var(--contrastcolor);
   border-radius: 50px;
   padding: 2px 15px;
 }
@@ -502,14 +502,14 @@ section {
   font-weight: 600;
   line-height: 1;
   text-transform: uppercase;
-  color: #272829;
+  color: var(--textcolor);
   margin-bottom: 5px;
   transition: all 0.3s ease-in-out;
 }
 
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
-  color: #0563bb;
+  color: var(--maincolor);
 }
 
 .portfolio #portfolio-flters li:last-child {
@@ -659,7 +659,7 @@ section {
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #0563bb;
+  background-color: var(--accentcolor);
 }
 
 .portfolio-details .portfolio-info {
@@ -706,7 +706,7 @@ section {
   text-align: center;
   padding: 70px 20px 80px 20px;
   transition: all ease-in-out 0.3s;
-  background: #fff;
+  background: var(--contrastcolor);
   box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.05);
 }
 
@@ -837,16 +837,16 @@ section {
 --------------------------------------------------------------*/
 .contact .info {
   width: 100%;
-  background: #fff;
+  background: var(--contrastcolor);
 }
 
 .contact .info i {
   font-size: 20px;
-  color: #0563bb;
+  color: var(--contrastcolor);
   float: left;
   width: 44px;
   height: 44px;
-  background: #eef7ff;
+  background: var(--accentcolor);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -854,19 +854,21 @@ section {
   transition: all 0.3s ease-in-out;
 }
 
+/* Titles */
 .contact .info h4 {
   padding: 0 0 0 60px;
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: #45505b;
+  color: var(--accentcolor);
 }
 
+/* Values */
 .contact .info p {
   padding: 0 0 0 60px;
   margin-bottom: 0;
   font-size: 14px;
-  color: #728394;
+  color: var(--textcolor);
 }
 
 .contact .info .email,
@@ -877,7 +879,7 @@ section {
 .contact .info .email:hover i,
 .contact .info .address:hover i,
 .contact .info .phone:hover i {
-  background: #0563bb;
+  background: var(--textcolor);
   color: #fff;
 }
 
