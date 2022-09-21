@@ -7,6 +7,12 @@
   --textcolor: #131411;
   --contrastcolor: #D9DDDE;
   --accentcolor: #283618;
+
+  /* Variables in RGB mode */
+  --maincolorRGB: 93, 116, 70;
+  --textcolorRGB: 19, 20, 17;
+  --contrastcolorRGB: 217, 221, 222;
+  --accentcolorRGB: 40, 50, 24;
 }
 
 /*--------------------------------------------------------------
@@ -521,7 +527,7 @@ section {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  background: rgba(69, 80, 91, 0.8);
+  background: rgba(var(--accentcolorRGB), 0.7);
 }
 
 .portfolio .portfolio-wrap::before {
@@ -592,7 +598,7 @@ section {
 
 /* Subtitle of the wrap */
 .portfolio .portfolio-wrap .portfolio-info p {
-  color: #45505b;
+  color: var(--textcolor);
   font-size: 14px;
   text-transform: uppercase;
   padding: 0;
@@ -605,7 +611,7 @@ section {
 }
 
 .portfolio .portfolio-wrap .portfolio-links a {
-  color: #45505b;
+  color: var(--accentcolor);
   margin: 0 2px;
   font-size: 28px;
   display: inline-block;
@@ -613,7 +619,7 @@ section {
 }
 
 .portfolio .portfolio-wrap .portfolio-links a:hover {
-  color: #148af9;
+  color: var(--textcolor);
 }
 
 .portfolio .portfolio-wrap:hover::before {
@@ -621,7 +627,7 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.75;
+  opacity: 0.7;
 }
 
 .portfolio .portfolio-wrap:hover .portfolio-info {
@@ -715,8 +721,8 @@ section {
   text-align: center;
   padding: 70px 20px 80px 20px;
   transition: all ease-in-out 0.3s;
-  background: var(--contrastcolor);
-  box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.05);
+  background: rgba(var(--accentcolorRGB), 0.5);
+  box-shadow: 0px 5px 90px 0px rgba(var(--accentcolorRGB), 0.01);
 }
 
 .services .icon-box .icon {
@@ -744,7 +750,7 @@ section {
 
 .services .icon-box .icon svg path {
   transition: 0.5s;
-  fill: #f5f5f5;
+  fill: var(--accentcolor);
 }
 
 .services .icon-box h4 {
@@ -753,8 +759,9 @@ section {
   font-size: 22px;
 }
 
+/* Title of each box */
 .services .icon-box h4 a {
-  color: #45505b;
+  color: var(--contrastcolor);
   transition: ease-in-out 0.3s;
 }
 
@@ -844,9 +851,12 @@ section {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
+.contact-box {
+  background: rgba(var(--accentcolorRGB), 0.8);
+}
 .contact .info {
   width: 100%;
-  background: var(--contrastcolor);
+  /* background: var(--contrastcolor); */
 }
 
 .contact .info i {
