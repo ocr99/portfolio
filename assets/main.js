@@ -142,11 +142,18 @@
             delay: 5000,
             disableOnInteraction: false,
         },
+        keyboard: {
+            enabled: true,
+        },
         pagination: {
             el: ".swiper-pagination",
             type: "bullets",
             clickable: true,
         },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
     });
 
     /**

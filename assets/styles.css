@@ -653,13 +653,18 @@ section {
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
-  background-color: #fff;
+  background-color: var(--contrastcolor);
   opacity: 1;
   border: 1px solid var(--accentcolor);
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
   background-color: var(--accentcolor);
+}
+
+.portfolio-details .portfolio-details-slider .swiper-button-next, .swiper-button-prev {
+  color: var(--contrastcolor);
+
 }
 
 .portfolio-details .portfolio-info {
