@@ -851,12 +851,11 @@ section {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
-.contact-box {
-  background: rgba(var(--accentcolorRGB), 0.8);
-}
 .contact .info {
   width: 100%;
-  /* background: var(--contrastcolor); */
+  background: rgba(var(--accentcolorRGB), 0.5);
+  padding: 50px;
+  border-radius: 10%;
 }
 
 .contact .info i {
@@ -879,7 +878,7 @@ section {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: var(--accentcolor);
+  color: var(--contrastcolor);
 }
 
 /* Values */
