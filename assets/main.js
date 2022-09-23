@@ -233,7 +233,7 @@
     /**
      * Update all email class to mailto Automatically
      */
-    window.addEventListener('load', () => {
+    window.addEventListener('DOMContentLoaded', () => {
         let currentMail = "oscar.lopezconde@outlook.com";
         var anchors = document.querySelectorAll("a.mailto");
 
