@@ -230,4 +230,17 @@
         else valueToChange.textContent = beforeB;
     });
 
+    /**
+     * Update all email class to mailto Automatically
+     */
+    window.addEventListener('load', () => {
+        let currentMail = "oscar.lopezconde@outlook.com";
+        var anchors = document.querySelectorAll("a.mailto");
+
+        for(var i = 0; i < anchors.length; i++) {
+            anchors[i].setAttribute("href", ("mailto:" + currentMail));
+            if (!(anchors[i].classList.contains("noTextA"))) anchors[i].textContent = currentMail;
+        }
+    });
+
 })()
