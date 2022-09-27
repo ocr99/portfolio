@@ -3,16 +3,34 @@
 --------------------------------------------------------------*/
 
 :root {
-  --maincolor: #5d7446;
+  /* Color Palette */
+  /* --maincolor: #041C32;
+  --accentcolor: #04293A;
+  --textcolor: #E3C770;
+  --contrastcolor: #ECB365; */
+
+  --maincolor: #100F0F;
+  --accentcolor: #0F3D3E;
+  --textcolor: #E2DCC8;
+  --contrastcolor:#F1F1F1;
+
+
+  /* --maincolor: #5d7446;
   --textcolor: #131411;
   --contrastcolor: #D9DDDE;
-  --accentcolor: #283618;
+  --accentcolor: #283618; */
 
   /* Variables in RGB mode */
-  --maincolorRGB: 93, 116, 70;
+  --maincolorRGB: 16, 15, 15;
+  --accentcolorRGB: 15, 61, 62;
+  --textcolorRGB: 226, 220, 200;
+  --contrastcolorRGB: 241, 241, 241;
+
+
+  /* --maincolorRGB: 93, 116, 70;
   --textcolorRGB: 19, 20, 17;
   --contrastcolorRGB: 217, 221, 222;
-  --accentcolorRGB: 40, 50, 24;
+  --accentcolorRGB: 40, 50, 24; */
 }
 
 /*--------------------------------------------------------------
@@ -110,7 +128,7 @@ a:hover {
 }
 
 .back-to-top:hover {
-  background: var(--textcolor);
+  background: rgba(var(--textcolorRGB), 0.7);
   color: var(--contrastcolor);
 }
 
@@ -274,9 +292,7 @@ a:hover {
 .nav-menu .active,
 .nav-menu .active:focus,
 .nav-menu li:hover>a {
-  color: #fff;
-  /* background: #3b462f; */
-  background: var(--textcolor);
+  background: rgba(var(--textcolorRGB), 0.7);
 }
 
 .nav-menu a:hover span,
@@ -317,7 +333,7 @@ a:hover {
 }
 
 .mobile-nav-toggle i {
-  color: #45505b;
+  color: var(--contrastcolor);
 }
 
 .mobile-nav-active {
@@ -452,7 +468,7 @@ section {
 /* Years in resume */
 .resume .resume-item h5 {
   font-size: 16px;
-  background: var(--contrastcolor);
+  background: var(--accentcolor);
   padding: 5px 15px;
   display: inline-block;
   font-weight: 600;
@@ -479,7 +495,7 @@ section {
   border-radius: 50px;
   left: -9px;
   top: 0;
-  background: #fff;
+  background: var(--contrastcolor);
   border: 2px solid var(--accentcolor);
 }
 
@@ -495,7 +511,7 @@ section {
   margin: 0 auto 25px auto;
   list-style: none;
   text-align: center;
-  background: var(--contrastcolor);
+  background: var(--accentcolor);
   border-radius: 50px;
   padding: 2px 15px;
 }
@@ -515,7 +531,7 @@ section {
 
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
-  color: var(--maincolor);
+  color: var(--contrastcolor);
 }
 
 .portfolio #portfolio-flters li:last-child {
@@ -532,7 +548,7 @@ section {
 
 .portfolio .portfolio-wrap::before {
   content: "";
-  background: var(--contrastcolor);
+  background: rgba(var(--contrastcolorRGB), 0.7);
   position: absolute;
   left: 30px;
   right: 30px;
@@ -592,13 +608,14 @@ section {
 /* Title of the wrap */
 .portfolio .portfolio-wrap .portfolio-info h4 {
   font-size: 20px;
-  color: #45505b;
+  color: var(--accentcolor);
   font-weight: 600;
 }
 
 /* Subtitle of the wrap */
 .portfolio .portfolio-wrap .portfolio-info p {
   color: var(--textcolor);
+  -webkit-text-stroke: 0.15px var(--accentcolor);
   font-size: 14px;
   text-transform: uppercase;
   padding: 0;
@@ -897,7 +914,7 @@ section {
 .contact .info .email:hover i,
 .contact .info .address:hover i,
 .contact .info .phone:hover i {
-  background: var(--textcolor);
+  background: rgba(var(--textcolorRGB), 0.7);
   color: #fff;
 }
 
@@ -968,7 +985,7 @@ section {
 }
 
 #footer .social-links a:hover {
-  background: var(--textcolor);
+  background: rgba(var(--textcolorRGB), 0.7);
   color: var(--contrastcolor);
   text-decoration: none;
 }
