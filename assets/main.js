@@ -94,7 +94,7 @@
     })
 
     /**
-     * Scrool with ofset on links with a class name .scrollto
+     * Scroll with offset on links with a class name .scrollto
      */
     on('click', '.scrollto', function (e) {
         if (select(this.hash)) {
@@ -222,7 +222,7 @@
         let today = new Date();
         let year = today.getUTCFullYear();
         let month = today.getUTCMonth();
-        var valueToChange = document.getElementById("currentAge");
+        let valueToChange = document.getElementById("currentAge");
         let beforeB = "" + (year - 2000);
         let afterB = "" + (year - 1999);
 
@@ -235,11 +235,11 @@
      */
     window.addEventListener('DOMContentLoaded', () => {
         let currentMail = "oscar.lopezconde@outlook.com";
-        var anchors = document.querySelectorAll("a.mailto");
+        let anchors = document.querySelectorAll("a.mailto");
 
-        for(var i = 0; i < anchors.length; i++) {
-            anchors[i].setAttribute("href", ("mailto:" + currentMail));
-            if (!(anchors[i].classList.contains("noTextA"))) anchors[i].textContent = currentMail;
+        for(const element of anchors) {
+            element.setAttribute("href", ("mailto:" + currentMail));
+            if (!(element.classList.contains("noTextA"))) element.textContent = currentMail;
         }
     });
 
