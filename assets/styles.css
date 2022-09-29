@@ -460,7 +460,6 @@ section {
   font-weight: 600;
   font-weight: bolder;
   text-transform: uppercase;
-  /* font-family: "Poppins", sans-serif; */
   color: var(--accentcolor);
   margin-bottom: 10px;
 }
