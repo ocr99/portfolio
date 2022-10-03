@@ -63,43 +63,49 @@ a:hover {
 --------------------------------------------------------------*/
 
 .knowme {
-    border: 2px solid currentColor;
-    border-radius: 3rem;
-    color: var(--maincolor);
-    overflow: hidden;
-    padding: 1rem 2rem;
-    position: relative;
-    text-decoration: none;
-    transition: 0.2s transform ease-in-out;
-    will-change: transform;
-    z-index: 0;
-  }
-  .knowme::after {
-    background-color: var(--maincolor);
-    border-radius: 3rem;
-    content: '';
-    display: block;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    transform: translate(-100%, 0) rotate(10deg);
-    transform-origin: top left;
-    transition: 0.2s transform ease-out;
-    will-change: transform;
-    z-index: -1;
-  }
-  .knowme:hover::after {
-    transform: translate(0, 0);
-  }
-  .knowme:hover {
-    border: 2px solid transparent;
-    color: var(--contrastcolor);
-    transform: scale(1.05);
-    will-change: transform;
-  }
-  .contrastcolor {
+  border: 2px solid var(--accentcolor);
+  border-radius: 3rem;
+  color: var(--maincolor);
+  background-color: var(--textcolor);
+  overflow: hidden;
+  padding: 1rem 2rem;
+  position: relative;
+  text-decoration: none;
+  transition: 0.2s transform ease-in-out;
+  will-change: transform;
+  z-index: 0;
+}
+
+.knowme::after {
+  background-color: var(--maincolor);
+  border-radius: 3rem;
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-100%, 0) rotate(10deg);
+  transform-origin: top left;
+  transition: 0.2s transform ease-out;
+  will-change: transform;
+  z-index: -1;
+}
+
+.knowme:hover::after {
+  transform: translate(0, 0);
+}
+
+.knowme:hover {
+  border: 2px solid transparent;
+  color: var(--textcolor);
+  background-color: var(--accentcolor);
+  transform: scale(1.05);
+  will-change: transform;
+}
+
+.contrastcolor {
     color: var(--contrastcolor);
     font-style: normal;
   }
