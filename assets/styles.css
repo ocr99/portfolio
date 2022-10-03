@@ -504,6 +504,49 @@ section {
   border: 2px solid var(--accentcolor);
 }
 
+.resume .mycv {
+  border: 2px solid var(--accentcolor);
+  border-radius: 3rem;
+  color: var(--maincolor);
+  background-color: var(--textcolor);
+  overflow: hidden;
+  padding: 1rem 2rem;
+  position: relative;
+  text-decoration: none;
+  transition: 0.2s transform ease-in-out;
+  will-change: transform;
+  z-index: 0;
+}
+
+.resume .mycv::after {
+  background-color: var(--maincolor);
+  border-radius: 3rem;
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-100%, 0) rotate(10deg);
+  transform-origin: top left;
+  transition: 0.2s transform ease-out;
+  will-change: transform;
+  z-index: -1;
+}
+
+.resume .mycv:hover::after {
+  transform: translate(0, 0);
+}
+
+.resume .mycv:hover {
+  border: 2px solid transparent;
+  color: var(--textcolor);
+  background-color: var(--accentcolor);
+  transform: scale(1.05);
+  will-change: transform;
+}
+
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/

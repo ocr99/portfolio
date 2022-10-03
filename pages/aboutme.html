@@ -21,6 +21,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
         <link rel=”stylesheet” href=”https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css”>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
         <!-- AOS -->
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 
@@ -171,9 +172,27 @@
                     </div>
                     </div>
                 </div>
-                <!-- <div class="align-">
-                  <button class="button btn-lg">Want to see the pdf?</button>
-                </div> -->
+                <div class="text-center pt-5">
+                  <button type="button" class="mycv fw-bold" data-bs-toggle="modal" data-bs-target="#cvModal">Want to see my CV?</button>
+                </div>
+
+                <div class="modal fade" id="cvModal" tabindex="-1" aria-labelledby="cvModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="cvModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <object data="../assets/downloads/Oscar-Lopez-CV.pdf" type="application/pdf" style="height: -webkit-fill-available;width: -webkit-fill-available"></object>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn closebtn" data-bs-dismiss="modal">Close</button>
+                        <a class="btn" href="../assets/downloads/Oscar-Lopez-CV.pdf" download role="button">Download CV</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
         
                 </div>
             </section>
