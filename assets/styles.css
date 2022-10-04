@@ -547,6 +547,66 @@ section {
   will-change: transform;
 }
 
+/* Whole Modal */
+.resume .modal .modal-dialog .modal-content {
+  background-color: var(--accentcolor);
+  color: var(--textcolor);
+}
+
+/* Line Separator Modal Header to Body  */
+.resume .modal .modal-header {
+  border-bottom: solid var(--textcolor);
+}
+
+/* Close X Button */
+.resume .modal .modal-header button {
+  color: var(--contrastcolor);
+}
+
+/* Modal Height to almost all window */
+.resume .modal .modal-dialog {
+  height: 90%;
+}
+
+/* Content Inside Modal to Occupy All Modal */
+.resume .modal .modal-content {
+  height: 100%;
+}
+
+/* Adjust CV to modal */
+.resume .modal .modal-body object, iframe {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+}
+
+/* Separator Modal Body and Footer */
+.resume .modal .modal-footer {
+  border-top: solid var(--textcolor);
+}
+
+/* Bottom Buttons */
+.resume .modal .btn-primary {
+  background-color: var(--maincolor);
+  color: var(--textcolor);
+  border-color: var(--maincolor);
+}
+
+.resume .modal .btn-primary:hover {
+  background-color: rgba(var(--maincolorRGB), 0.9);
+  color: var(--contrastcolor);
+  border-color: var(--maincolor);
+}
+
+.resume .modal .btn-outline-secondary {
+  color: var(--textcolor);
+  border-color: var(--textcolor);
+}
+
+.resume .modal .btn-outline-secondary:hover {
+  background-color: rgba(var(--maincolorRGB), 0.2);
+  color: var(--contrastcolor);
+}
+
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/

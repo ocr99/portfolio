@@ -177,18 +177,20 @@
                 </div>
 
                 <div class="modal fade" id="cvModal" tabindex="-1" aria-labelledby="cvModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-scrollable">
+                  <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h1 class="modal-title fs-5" id="cvModalLabel">Modal title</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        <object data="../assets/downloads/Oscar-Lopez-CV.pdf" type="application/pdf" style="height: -webkit-fill-available;width: -webkit-fill-available"></object>
+                        <object>
+                          <iframe src="../assets/downloads/Oscar-Lopez-CV.pdf#toolbar=0&navpanes=0" frameborder="0" title="Oscar Lopez CV"></iframe>
+                        </object>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn closebtn" data-bs-dismiss="modal">Close</button>
-                        <a class="btn" href="../assets/downloads/Oscar-Lopez-CV.pdf" download role="button">Download CV</a>
+                        <a class="btn btn-outline-secondary" href="../assets/downloads/Oscar-Lopez-CV.pdf" download role="button">Download CV</a>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                       </div>
                     </div>
                   </div>
