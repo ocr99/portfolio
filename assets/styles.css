@@ -449,8 +449,8 @@ section {
   font-size: 18px;
   font-weight: 600;
   font-weight: bolder;
-  text-transform: uppercase;
-  color: var(--accentcolor);
+  text-transform: capitalize;
+  color: var(--textcolor);
   margin-bottom: 10px;
 }
 
