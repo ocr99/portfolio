@@ -4,33 +4,17 @@
 
 :root {
   /* Color Palette */
-  /* --maincolor: #041C32;
-  --accentcolor: #04293A;
-  --textcolor: #E3C770;
-  --contrastcolor: #ECB365; */
 
   --maincolor: #100F0F;
   --accentcolor: #0F3D3E;
   --textcolor: #E2DCC8;
   --contrastcolor:#F1F1F1;
 
-
-  /* --maincolor: #5d7446;
-  --textcolor: #131411;
-  --contrastcolor: #D9DDDE;
-  --accentcolor: #283618; */
-
   /* Variables in RGB mode */
   --maincolorRGB: 16, 15, 15;
   --accentcolorRGB: 15, 61, 62;
   --textcolorRGB: 226, 220, 200;
   --contrastcolorRGB: 241, 241, 241;
-
-
-  /* --maincolorRGB: 93, 116, 70;
-  --textcolorRGB: 19, 20, 17;
-  --contrastcolorRGB: 217, 221, 222;
-  --accentcolorRGB: 40, 50, 24; */
 }
 
 /*--------------------------------------------------------------
@@ -1060,18 +1044,16 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  /* background: #f7f8f9; */
   color: var(--textcolor);
   font-size: 14px;
-  text-align: center;
   padding: 30px 0;
+  padding-left: 100px;
 }
 
 #footer h3 {
   font-size: 36px;
   font-weight: 700;
   position: relative;
-  /* font-family: "Poppins", sans-serif; */
   padding: 0;
   margin: 0 0 15px 0;
 }
