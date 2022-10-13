@@ -708,7 +708,7 @@ section {
 /* Title of the wrap */
 .portfolio .portfolio-wrap .portfolio-info h4 {
   font-size: 20px;
-  color: var(--accentcolor);
+  color: var(--textcolor);
   font-weight: 600;
 }
 
@@ -780,18 +780,19 @@ section {
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
-  background-color: var(--contrastcolor);
+  background-color: var(--accentcolor);
   opacity: 1;
-  border: 1px solid var(--accentcolor);
+  border: 1px solid var(--textcolor);
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--accentcolor);
+  background-color: var(--contrastcolor);
 }
 
+/* Arrows of image swiper */
 .portfolio-details .portfolio-details-slider .swiper-button-next, .swiper-button-prev {
-  color: var(--contrastcolor);
-
+  color: rgba(var(--accentcolorRGB), 0.8);
+  opacity: 0;
 }
 
 .portfolio-details .portfolio-info {
@@ -804,7 +805,7 @@ section {
   font-weight: 700;
   margin-bottom: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--accentcolor);
 }
 
 .portfolio-details .portfolio-info ul {
