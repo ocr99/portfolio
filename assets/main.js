@@ -204,6 +204,21 @@
     });
 
     /**
+     * Show the bullet navigation buttons of Swiper only on hover the image
+     */
+     let next = select('.swiper-button-next');
+     let prev = select('.swiper-button-prev');
+     
+     on('mouseover', '.hover-wrapper', function(e) {
+         next.style.opacity = 1;
+         prev.style.opacity = 1;
+     });
+     on('mouseout', '.hover-wrapper', function(e) {
+         next.style.opacity = 0;
+         prev.style.opacity = 0;
+     });
+
+    /**
      * Animation on scroll
      */
     window.addEventListener('load', () => {
