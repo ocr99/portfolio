@@ -423,6 +423,15 @@ section {
   margin-bottom: 0;
 }
 
+.about .content .nodecor:hover {
+  text-decoration: none;
+  color: var(--textcolor);
+}
+
+.about .content .nodecor:hover + a {
+  color: var(--contrastcolor);
+}
+
 /*--------------------------------------------------------------
 # Resume
 --------------------------------------------------------------*/
