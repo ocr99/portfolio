@@ -250,7 +250,7 @@
      */
     window.addEventListener('DOMContentLoaded', () => {
         let currentMail = "oscar.lopezconde@outlook.com";
-        let anchors = document.querySelectorAll("a.mailto");
+        let anchors = select('a.mailto', true);
 
         for(const element of anchors) {
             element.setAttribute("href", ("mailto:" + currentMail));
