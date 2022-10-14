@@ -182,7 +182,7 @@
     /**
      * Portfolio details slider
      */
-    new Swiper(".portfolio-details-slider", {
+    const swiper = new Swiper(".portfolio-details-slider", {
         speed: 400,
         loop: true,
         autoplay: {
@@ -250,7 +250,7 @@
      */
     window.addEventListener('DOMContentLoaded', () => {
         let currentMail = "oscar.lopezconde@outlook.com";
-        let anchors = document.querySelectorAll("a.mailto");
+        let anchors = select('a.mailto', true);
 
         for(const element of anchors) {
             element.setAttribute("href", ("mailto:" + currentMail));
