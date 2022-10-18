@@ -253,8 +253,14 @@
         let anchors = select('a.mailto', true);
 
         for(const element of anchors) {
-            element.setAttribute("href", ("mailto:" + currentMail));
-            if (!(element.classList.contains("noTextA"))) element.textContent = currentMail;
+            if (element.classList.contains("mail-schedule")){
+                element.setAttribute("href", ("mailto:" + currentMail + "?subject=I%20would%20like%20to%20Schedule%20a%20call"));
+                element.textContent = "Schedule a Call!"
+            }
+            else {
+                element.setAttribute("href", ("mailto:" + currentMail));
+                if (!(element.classList.contains("noTextA"))) element.textContent = currentMail;
+            }
         }
     });
 
