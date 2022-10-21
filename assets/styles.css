@@ -1018,6 +1018,68 @@ section {
   color: var(--textcolor);
 }
 
+/* -- Maps Modal -- */
+
+/* Whole Modal */
+.contact .info .modal .modal-dialog .modal-content {
+  background-color: var(--accentcolor);
+  color: var(--textcolor);
+}
+
+/* Line Separator Modal Header to Body  */
+.contact .info .modal .modal-header {
+  border-bottom: solid var(--textcolor);
+}
+
+/* Close X Button */
+.contact .info .modal .modal-header button {
+  color: var(--contrastcolor);
+}
+
+/* Modal Height to almost all window */
+.contact .info .modal .modal-dialog {
+  height: 90%;
+}
+
+/* Content Inside Modal to Occupy All Modal */
+.contact .info .modal .modal-content {
+  height: 100%;
+}
+
+/* Adjust Map to modal */
+.contact .info .modal .modal-body object, iframe {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+}
+
+/* Separator Modal Body and Footer */
+.contact .info .modal .modal-footer {
+  border-top: solid var(--textcolor);
+}
+
+/* Bottom Buttons */
+.contact .info .modal .btn-primary {
+  background-color: var(--maincolor);
+  color: var(--textcolor);
+  border-color: var(--maincolor);
+}
+
+.contact .info .modal .btn-primary:hover {
+  background-color: rgba(var(--maincolorRGB), 0.9);
+  color: var(--contrastcolor);
+  border-color: var(--maincolor);
+}
+
+.contact .info .modal .btn-outline-secondary {
+  color: var(--textcolor);
+  border-color: var(--textcolor);
+}
+
+.contact .info .modal .btn-outline-secondary:hover {
+  background-color: rgba(var(--maincolorRGB), 0.2);
+  color: var(--contrastcolor);
+}
+
 .contact .info .email,
 .contact .info .phone {
   margin-top: 40px;
