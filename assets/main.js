@@ -234,16 +234,29 @@
      * Calculate Age Automatically
      */
     window.addEventListener('load', () => {
-        let today = new Date();
-        let year = today.getUTCFullYear();
-        let month = today.getUTCMonth();
-        let valueToChange = document.getElementById("currentAge");
-        let beforeB = "" + (year - 2000);
-        let afterB = "" + (year - 1999);
+        // Obtener fecha local en zona horaria de Madrid
+        const nowInMadrid = new Date(
+            new Date().toLocaleString('en-US', { timeZone: 'Europe/Madrid' })
+        );
 
-        if (month >= 7) valueToChange.textContent = afterB;
-        else valueToChange.textContent = beforeB;
+        const birthYear = 1999;
+        const birthMonth = 6; // Julio (mes 6 en JS)
+        const birthDay = 3;
+
+        let age = nowInMadrid.getFullYear() - birthYear;
+
+        const hasBirthdayPassed = (
+            nowInMadrid.getMonth() > birthMonth ||
+            (nowInMadrid.getMonth() === birthMonth && nowInMadrid.getDate() >= birthDay)
+        );
+
+        if (!hasBirthdayPassed) {
+            age -= 1;
+        }
+
+        document.getElementById("currentAge").textContent = age.toString();
     });
+
 
     /**
      * Update all email class to mailto Automatically
