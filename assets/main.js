@@ -41,11 +41,29 @@
     let navbarlinks = select('#navbar .scrollto', true)
     const navbarlinksActive = () => {
         let position = window.scrollY + 200
-        navbarlinks.forEach(navbarlink => {
+        // Near the bottom of the page there may not be enough scrollable
+        // height left to push `position` past the last section's end
+        // (the browser simply can't scroll further), so the normal range
+        // check below can never match the last section. Detect "scrolled
+        // to (near) the bottom" directly and force the last link active.
+        const atBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 2)
+ 
+        navbarlinks.forEach((navbarlink, index) => {
             if (!navbarlink.hash) return
             let section = select(navbarlink.hash)
             if (!section) return
-            if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+ 
+            const isLast = index === navbarlinks.length - 1
+            // When at the bottom, only the last link's "atBottom" state
+            // decides activation, this must fully override the normal
+            // range check for every link (including the last one), or
+            // an earlier section whose range overlaps near the page end
+            // (e.g. Projects right above Contact) stays active too.
+            const shouldBeActive = atBottom
+                ? isLast
+                : (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight))
+ 
+            if (shouldBeActive) {
                 navbarlink.classList.add('active')
             }
             else {
@@ -55,7 +73,6 @@
     }
     window.addEventListener('load', navbarlinksActive)
     onscroll(document, navbarlinksActive)
-
     /**
      * Scrolls to an element with header offset
      */
