@@ -5,9 +5,10 @@
   <!-- Classic Meta Declarations -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-  
+  <meta name="description" content="Personal Portfolio — an early static web project by Oscar Lopez, built from scratch in HTML, CSS and JavaScript.">
+  <meta name="keywords" content="Personal Portfolio, HTML, CSS, JavaScript, Bootstrap, Web Design">
+  <link rel="canonical" href="https://ocr99.github.io/portfolio/pages/personal-portfolio.html">
+
   <!-- Site Manifest -->
   <link rel="manifest" href="../assets/site.webmanifest">
 
@@ -18,25 +19,24 @@
 
   <!-- Import Bootstrap and main css and js files -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-  <link rel=”stylesheet” href=”https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css”>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <!-- AOS -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 
   <!-- Swiper Bundle -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
   <!-- Glightbox Bundle -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
-  <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
 
   <!-- Main CSS -->
   <link href="../assets/styles.css" rel="stylesheet">
 
   <!-- Title -->
-  <title>Personal Portfolio</title>
+  <title>Personal Portfolio | Oscar Lopez</title>
 
 </head>
 
@@ -51,48 +51,48 @@
         <div class="row gy-4">
 
           <div class="col-lg-8">
-            <h3 class="text-center fs-1 fw-bold font-monospace"><span class="blink contrastcolor">&GT;</span> Personal Portfolio</h3>
+            <h1 class="text-center fs-1 fw-bold font-monospace"><span class="blink contrastcolor">&GT;</span> Personal Portfolio</h1>
             <div class="hover-wrapper">
 
               <div class="portfolio-details-slider swiper">
                 <div class="swiper-wrapper align-items-center">
 
                   <div class="swiper-slide">
-                    <img src="../assets/img/Portfolio-img-1.png" alt="Portfolio First Image">
+                    <img src="../assets/img/Portfolio-img-1.png" alt="Personal portfolio homepage screenshot" loading="lazy" decoding="async">
                   </div>
-  
+
                   <div class="swiper-slide">
-                    <img src="../assets/img/Portfolio-img-2.png" alt="Portfolio Second Image">
+                    <img src="../assets/img/Portfolio-img-2.png" alt="Personal portfolio about section screenshot" loading="lazy" decoding="async">
                   </div>
-  
+
                   <div class="swiper-slide">
-                    <img src="../assets/img/Portfolio-img-3.png" alt="Portfolio Third Image">
+                    <img src="../assets/img/Portfolio-img-3.png" alt="Personal portfolio projects section screenshot" loading="lazy" decoding="async">
                   </div>
-  
+
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next" role="button" tabindex="0" aria-label="Next image"></div>
+                <div class="swiper-button-prev" role="button" tabindex="0" aria-label="Previous image"></div>
                 <div class="swiper-pagination"></div>
               </div>
-              
+
             </div>
           </div>
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3><span class="blink contrastcolor">&GT;</span> Project information</h3>
+              <h2><span class="blink contrastcolor">&GT;</span> Project information</h2>
               <ul>
                 <li><strong>Category</strong>: Web design</li>
                 <li><strong>Client</strong>: Personal Project</li>
                 <li><strong>Project date</strong>: 10 October, 2022</li>
-                <li><strong>Project URL</strong>: <a href="https://ocr99.github.io/portfolio/" target="_blank">ocr99.github.io/portfolio</a></li>
+                <li><strong>Project URL</strong>: <a href="https://ocr99.github.io/portfolio/" target="_blank" rel="noopener noreferrer">ocr99.github.io/portfolio</a></li>
               </ul>
             </div>
             <div class="portfolio-description">
               <h2 class="text-capitalize"><span class="blink contrastcolor">&GT;</span> This is my custom web portfolio</h2>
               <p>
-                This is a web portfolio completely created from scratch in HTML CSS &amp; JavaScript using also Bootstrap and various 
-                other JS libraries to help improve further the page. This was my first solo project combining different languages.
+                This is a web portfolio completely created from scratch in HTML, CSS &amp; JavaScript, using also Bootstrap and various
+                other JS libraries to further improve the page. This was my first solo project combining different languages.
               </p>
             </div>
           </div>
@@ -107,16 +107,16 @@
   <!-- End #main -->
 
   <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
 
   <!-- SCRIPT FILES -->
-  <script src="../assets/main.js"></script>
+  <script src="../assets/main.js" defer></script>
 
   <!-- ==========Import Extra Libraries========== -->
   <!-- AOS -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
   <!-- Isotope -->
-  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js" defer></script>
 </body>
 
 </html>
