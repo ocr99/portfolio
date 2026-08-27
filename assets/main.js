@@ -89,6 +89,8 @@
      */
     on('click', '.mobile-nav-toggle', function (e) {
         select('body').classList.toggle('mobile-nav-active')
+        const expanded = select('body').classList.contains('mobile-nav-active')
+        this.setAttribute('aria-expanded', expanded)
         this.classList.toggle('bi-list')
         this.classList.toggle('bi-x')
     })
@@ -106,6 +108,7 @@
                 let navbarToggle = select('.mobile-nav-toggle')
                 navbarToggle.classList.toggle('bi-list')
                 navbarToggle.classList.toggle('bi-x')
+                navbarToggle.setAttribute('aria-expanded', 'false')
             }
             scrollto(this.hash)
         }
@@ -127,17 +130,24 @@
      */
     let preloader = select('#preloader');
     if (preloader) {
-        window.addEventListener('load', () => {
-            preloader.remove()
-        });
+        const removePreloader = () => preloader.remove();
+        window.addEventListener('load', removePreloader);
+        // Safety net: never let the preloader block the page if 'load'
+        // is delayed by a slow/blocked third-party asset.
+        setTimeout(removePreloader, 4000);
     }
 
     /**
      * Porfolio isotope and filter
+     * Only initialize Isotope when a filter bar actually exists on the page —
+     * otherwise it takes absolute-position control of the grid and overrides
+     * Bootstrap's own centering/layout for no reason.
      */
     window.addEventListener('load', () => {
         let portfolioContainer = select('.portfolio-container');
-        if (portfolioContainer) {
+        let portfolioFiltersBar = select('#portfolio-flters');
+
+        if (portfolioContainer && portfolioFiltersBar && typeof Isotope !== 'undefined') {
             let portfolioIsotope = new Isotope(portfolioContainer, {
                 itemSelector: '.portfolio-item'
             });
@@ -155,7 +165,7 @@
                     filter: this.getAttribute('data-filter')
                 });
                 portfolioIsotope.on('arrangeComplete', function() {
-                    AOS.refresh()
+                    if (typeof AOS !== 'undefined') AOS.refresh()
                 });
             }, true);
         }
@@ -164,98 +174,116 @@
 
 
     /**
-     * Initiate portfolio lightbox 
+     * Initiate portfolio lightbox(es)
+     * Deferred to window 'load' so this runs after glightbox.min.js has
+     * definitely finished loading, regardless of script order/timing.
      */
-    const portfolioLightbox = GLightbox({
-        selector: '.portfolio-lightbox'
-    });
+    window.addEventListener('load', () => {
+        if (typeof GLightbox === 'undefined') return;
 
-    /**
-     * Initiate portfolio details lightbox 
-     */
-    const portfolioDetailsLightbox = GLightbox({
-        selector: '.portfolio-details-lightbox',
-        width: '90%',
-        height: '90vh'
+        GLightbox({
+            selector: '.portfolio-lightbox'
+        });
+
+        GLightbox({
+            selector: '.portfolio-details-lightbox',
+            width: '90%',
+            height: '90vh'
+        });
     });
 
     /**
      * Portfolio details slider
+     * Only present on pages that load Swiper (e.g. elboncami.html,
+     * personal-portfolio.html) — guarded so index.html, which doesn't
+     * load Swiper, doesn't throw a "Swiper is not defined" error.
      */
-    const swiper = new Swiper(".portfolio-details-slider", {
-        speed: 400,
-        loop: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        keyboard: {
-            enabled: true,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            type: "bullets",
-            clickable: true,
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-    });
+    window.addEventListener('load', () => {
+        if (typeof Swiper === 'undefined') return;
+        if (!select('.portfolio-details-slider')) return;
 
-    /**
-     * Show the bullet navigation buttons of Swiper only on hover the image
-     */
-     let next = select('.swiper-button-next');
-     let prev = select('.swiper-button-prev');
-     
-     on('mouseover', '.hover-wrapper', function(e) {
-         next.style.opacity = 1;
-         prev.style.opacity = 1;
-     });
-     on('mouseout', '.hover-wrapper', function(e) {
-         next.style.opacity = 0;
-         prev.style.opacity = 0;
-     });
+        const swiper = new Swiper(".portfolio-details-slider", {
+            speed: 400,
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            keyboard: {
+                enabled: true,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                type: "bullets",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        /**
+         * Show the bullet navigation buttons of Swiper only on hover the image
+         */
+        let next = select('.swiper-button-next');
+        let prev = select('.swiper-button-prev');
+
+        if (next && prev) {
+            on('mouseover', '.hover-wrapper', function(e) {
+                next.style.opacity = 1;
+                prev.style.opacity = 1;
+            });
+            on('mouseout', '.hover-wrapper', function(e) {
+                next.style.opacity = 0;
+                prev.style.opacity = 0;
+            });
+        }
+    });
 
     /**
      * Animation on scroll
      */
     window.addEventListener('load', () => {
-        AOS.init({
-            duration: 1000,
-            easing: 'ease-in-out',
-            once: true,
-            mirror: false
-        })
-    });
-
-    /**
-     * Calculate Age Automatically
-     */
-    window.addEventListener('load', () => {
-        // Obtener fecha local en zona horaria de Madrid
-        const nowInMadrid = new Date(
-            new Date().toLocaleString('en-US', { timeZone: 'Europe/Madrid' })
-        );
-
-        const birthYear = 1999;
-        const birthMonth = 6; // Julio (mes 6 en JS)
-        const birthDay = 3;
-
-        let age = nowInMadrid.getFullYear() - birthYear;
-
-        const hasBirthdayPassed = (
-            nowInMadrid.getMonth() > birthMonth ||
-            (nowInMadrid.getMonth() === birthMonth && nowInMadrid.getDate() >= birthDay)
-        );
-
-        if (!hasBirthdayPassed) {
-            age -= 1;
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 1000,
+                easing: 'ease-in-out',
+                once: true,
+                mirror: false
+            })
         }
-
-        document.getElementById("currentAge").textContent = age.toString();
     });
+
+    /*
+     * Calculate Age Automatically
+     * window.addEventListener('load', () => {
+     *     const ageEl = document.getElementById("currentAge");
+     *     if (!ageEl) return;
+     *
+     *     // Obtener fecha local en zona horaria de Madrid
+     *     const nowInMadrid = new Date(
+     *         new Date().toLocaleString('en-US', { timeZone: 'Europe/Madrid' })
+     *     );
+     *
+     *     const birthYear = 1999;
+     *     const birthMonth = 6; // Julio (mes 6 en JS)
+     *     const birthDay = 3;
+     *
+     *     let age = nowInMadrid.getFullYear() - birthYear;
+     *
+     *     const hasBirthdayPassed = (
+     *         nowInMadrid.getMonth() > birthMonth ||
+     *         (nowInMadrid.getMonth() === birthMonth && nowInMadrid.getDate() >= birthDay)
+     *     );
+     *
+     *     if (!hasBirthdayPassed) {
+     *         age -= 1;
+     *     }
+     *
+     *     ageEl.textContent = age.toString();
+     * });
+     */
 
 
     /**
