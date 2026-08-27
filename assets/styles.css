@@ -983,14 +983,14 @@ section {
 .contact .info {
   width: 100%;
   background: rgba(var(--accentcolorRGB), 0.5);
-  padding: 50px;
-  border-radius: 10%;
+  padding: 2rem 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
 }
 
 .contact .info i {
   font-size: 20px;
   color: var(--contrastcolor);
-  float: left;
   width: 44px;
   height: 44px;
   background: var(--accentcolor);
@@ -998,21 +998,22 @@ section {
   justify-content: center;
   align-items: center;
   border-radius: 50px;
+  margin: 0 auto 1rem;
   transition: all 0.3s ease-in-out;
 }
 
 /* Titles */
 .contact .info h4 {
-  padding: 0 0 0 60px;
+  padding: 0;
   font-size: 22px;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 0.5rem;
   color: var(--contrastcolor);
 }
 
 /* Values */
 .contact .info p {
-  padding: 0 0 0 60px;
+  padding: 0;
   margin-bottom: 0;
   font-size: 14px;
   color: var(--textcolor);
@@ -1082,7 +1083,7 @@ section {
 
 .contact .info .email,
 .contact .info .phone {
-  margin-top: 40px;
+  margin-top: 0;
 }
 
 .contact .info .email:hover i,
@@ -1179,3 +1180,190 @@ section {
     opacity: 0.2;
   }
 }
+
+/*--------------------------------------------------------------
+# BI Portfolio Custom Components
+--------------------------------------------------------------*/
+
+/* Wider section intros for the new BI-focused content */
+.section-lead {
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* About / hero supporting text */
+.hero-role {
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  margin-top: 0.75rem;
+}
+
+.hero-stack {
+  margin-top: 1.1rem;
+}
+
+/* Technology stack cards */
+.skill-group {
+  height: 100%;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: rgba(var(--accentcolorRGB), 0.35);
+  border: 1px solid rgba(var(--textcolorRGB), 0.12);
+  transition: transform 0.2s ease-in-out,
+              border-color 0.2s ease-in-out,
+              box-shadow 0.2s ease-in-out;
+}
+
+.skill-group h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  color: var(--contrastcolor);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.skill-group h4 i {
+  color: var(--textcolor);
+}
+
+.skill-group:hover {
+  transform: translateY(-4px);
+  border-color: rgba(var(--textcolorRGB), 0.35);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.skill-tag {
+  display: inline-block;
+  margin: 0.25rem 0.25rem 0.25rem 0;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  line-height: 1.2;
+  background: rgba(var(--contrastcolorRGB), 0.08);
+  border: 1px solid rgba(var(--textcolorRGB), 0.08);
+  color: var(--textcolor);
+}
+
+/* BI case studies */
+.case-study {
+  height: 100%;
+  padding: 1.75rem;
+  border-radius: 1rem;
+  background: rgba(var(--accentcolorRGB), 0.35);
+  border: 1px solid rgba(var(--textcolorRGB), 0.12);
+  transition: transform 0.2s ease-in-out,
+              border-color 0.2s ease-in-out,
+              box-shadow 0.2s ease-in-out;
+}
+
+.case-study:hover {
+  transform: translateY(-4px);
+  border-color: rgba(var(--textcolorRGB), 0.35);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.case-study .icon {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+  color: var(--contrastcolor);
+}
+
+.case-study h4 {
+  margin-bottom: 0.9rem;
+  color: var(--contrastcolor);
+  font-weight: 700;
+}
+
+.case-study p {
+  margin-bottom: 0.75rem;
+}
+
+.case-study p:last-child {
+  margin-bottom: 0;
+}
+
+.case-study .tech {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(var(--textcolorRGB), 0.14);
+  font-size: 0.84rem;
+  color: var(--textcolor);
+}
+
+.project-type {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(var(--contrastcolorRGB), 0.08);
+  border: 1px solid rgba(var(--textcolorRGB), 0.08);
+  color: var(--textcolor);
+}
+
+/* Project section heading */
+.portfolio .section-title h3 {
+  color: var(--textcolor);
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* Keep the existing web project previews driven by their image dimensions */
+.portfolio .portfolio-item {
+  margin-bottom: 30px;
+}
+
+.portfolio .portfolio-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Contact cards */
+.contact .info {
+  height: 100%;
+  transition: transform 0.2s ease-in-out,
+              border-color 0.2s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.contact .info:hover {
+  transform: translateY(-3px);
+  border-color: rgba(var(--textcolorRGB), 0.18);
+}
+
+/* Responsive spacing */
+@media (max-width: 991px) {
+  .skill-group,
+  .case-study {
+    margin-bottom: 0.25rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-lead {
+    padding: 0 0.75rem;
+  }
+
+  .skill-group,
+  .case-study {
+    padding: 1.25rem;
+    border-radius: 0.85rem;
+  }
+
+  .skill-tag {
+    font-size: 0.78rem;
+  }
+
+  .case-study .icon {
+    font-size: 1.75rem;
+  }
+}
+
