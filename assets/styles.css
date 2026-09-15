@@ -1352,6 +1352,20 @@ section {
   height: auto;
 }
 
+/* Icon-based thumbnail for portfolio items without a screenshot (e.g. Homelab) */
+.portfolio-wrap-icon {
+  aspect-ratio: 8 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--accentcolorRGB), 0.9);
+}
+
+.portfolio-icon-thumb {
+  font-size: 4.5rem;
+  color: var(--textcolor);
+}
+
 /* Contact cards */
 .contact .info {
   height: 100%;

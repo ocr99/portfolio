@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="description" content="Homelab — self-hosted infrastructure by Oscar Lopez: Proxmox virtualization, Docker, networking, reverse proxy, identity/SSO and Home Assistant automation.">
+  <meta name="keywords" content="Homelab, Proxmox, Docker, LXC, Cloudflare Tunnel, Home Assistant, Self-Hosting, Networking, DNS, DHCP">
+  <link rel="canonical" href="https://ocr99.github.io/portfolio/pages/projects/personal/homelab.html">
+
+  <meta property="og:title" content="Homelab | Oscar Lopez">
+  <meta property="og:description" content="Self-hosted infrastructure: Proxmox, Docker, networking, reverse proxy, identity/SSO and Home Assistant automation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ocr99.github.io/portfolio/pages/projects/personal/homelab.html">
+  <meta property="og:image" content="https://ocr99.github.io/portfolio/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Homelab | Oscar Lopez">
+  <meta name="twitter:description" content="Self-hosted infrastructure: Proxmox, Docker, networking, reverse proxy, identity/SSO and Home Assistant automation.">
+  <meta name="twitter:image" content="https://ocr99.github.io/portfolio/assets/img/og-image.jpg">
+
+  <link rel="manifest" href="../../../assets/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/favicon/favicon-16x16.png">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+
+  <link href="../../../assets/styles.css" rel="stylesheet">
+
+  <title>Homelab | Oscar Lopez</title>
+</head>
+
+<body>
+
+  <main id="main">
+
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container" data-aos="fade-up">
+
+        <h1 class="text-center fs-1 fw-bold font-monospace"><span class="blink contrastcolor">&GT;</span> Homelab</h1>
+        <p class="section-lead text-center pt-2 pb-4">
+          <span class="blink contrastcolor">&GT;</span> Personal self-hosted infrastructure I've designed, deployed and maintained for over 4 years: virtualization, containers, networking, identity/SSO and home automation.
+        </p>
+
+        <div class="row gy-4">
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h2><span class="blink contrastcolor">&GT;</span> Project information</h2>
+              <ul>
+                <li><strong>Category</strong>: Self-Hosted Infrastructure</li>
+                <li><strong>Role</strong>: Design, deployment &amp; maintenance</li>
+                <li><strong>Running since</strong>: 2021+ (4+ years)</li>
+                <li><strong>Host</strong>: HP ProDesk · Proxmox VE 9</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <div class="portfolio-description">
+              <h2 class="text-capitalize"><span class="blink contrastcolor">&GT;</span> End-to-end self-hosted infrastructure</h2>
+              <p>
+                I run a production-grade homelab on <strong>Proxmox VE</strong>
+                using LXC and Docker to isolate services, Caddy and Cloudflare Tunnel to expose them securely without
+                opening ports, a self-managed identity layer with LDAP/SSO, and Home Assistant as the central
+                automation platform for the house.
+              </p>
+              <p>
+                It's more than installing apps: it involves architecture design, troubleshooting at the system,
+                network and hardware level, and ongoing maintenance (e.g. migrating Proxmox 8 → 9 / Debian
+                Bookworm → Trixie in 2026).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Stack ===== -->
+        <div class="section-title pt-5">
+          <h3><span class="blink contrastcolor">&GT;</span> Stack</h3>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="skill-group">
+              <h4><i class="bi bi-hdd-stack" aria-hidden="true"></i> Virtualization</h4>
+              <span class="skill-tag">Proxmox VE</span>
+              <span class="skill-tag">LXC</span>
+              <span class="skill-tag">Docker / Compose</span>
+              <span class="skill-tag">Portainer</span>
+              <span class="skill-tag">Arcane</span>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="skill-group">
+              <h4><i class="bi bi-globe" aria-hidden="true"></i> Networking &amp; Exposure</h4>
+              <span class="skill-tag">Caddy</span>
+              <span class="skill-tag">Cloudflare Tunnel</span>
+              <span class="skill-tag">DNS / DHCP</span>
+              <span class="skill-tag">WireGuard</span>
+              <span class="skill-tag">Pi-hole</span>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="skill-group">
+              <h4><i class="bi bi-shield-lock" aria-hidden="true"></i> Identity &amp; Security</h4>
+              <span class="skill-tag">Tinyauth</span>
+              <span class="skill-tag">Pocket-ID</span>
+              <span class="skill-tag">LLDAP</span>
+              <span class="skill-tag">SSO</span>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="skill-group">
+              <h4><i class="bi bi-house-gear" aria-hidden="true"></i> Home Automation</h4>
+              <span class="skill-tag">Home Assistant</span>
+              <span class="skill-tag">Zigbee2MQTT</span>
+              <span class="skill-tag">MQTT</span>
+              <span class="skill-tag">PIR / Presence</span>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="skill-group">
+              <h4><i class="bi bi-code-slash" aria-hidden="true"></i> Integrations &amp; Scripting</h4>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Bash / PowerShell</span>
+              <span class="skill-tag">rclone / inotify</span>
+              <span class="skill-tag">Custom HA Integration</span>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="skill-group">
+              <h4><i class="bi bi-hdd-network" aria-hidden="true"></i> Storage &amp; Edge</h4>
+              <span class="skill-tag">NFS</span>
+              <span class="skill-tag">Raspberry Pi / DietPi</span>
+              <span class="skill-tag">Copyparty</span>
+              <span class="skill-tag">Wake-on-LAN</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Case Studies ===== -->
+        <div class="section-title pt-5">
+          <h3><span class="blink contrastcolor">&GT;</span> Breakdown by area</h3>
+        </div>
+
+        <div class="row g-4">
+
+          <div class="col-lg-6">
+            <div class="case-study">
+              <div class="icon"><i class="bi bi-server" aria-hidden="true"></i></div>
+              <span class="project-type">Infrastructure</span>
+              <h4>Virtualization with Proxmox</h4>
+              <p>Standalone host (no Ceph/HCI) with local-lvm storage, local and remote backups and NFS. Full migration from Proxmox 8→9 / Debian Bookworm→Trixie in 2026, resolving enterprise repository, UEFI boot, and common issues.</p>
+              <p class="tech"><strong>Stack:</strong> Proxmox VE · LXC · ext4/LVM</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="case-study">
+              <div class="icon"><i class="bi bi-box-seam" aria-hidden="true"></i></div>
+              <span class="project-type">Containers</span>
+              <h4>Docker orchestration</h4>
+              <p>Services running in Docker Compose, managed with Portainer Business and Arcane, resolving real-world permission issues and UID/GID mismatches between host and containers.</p>
+              <p class="tech"><strong>Stack:</strong> Docker · Portainer · Arcane</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="case-study">
+              <div class="icon"><i class="bi bi-diagram-3" aria-hidden="true"></i></div>
+              <span class="project-type">Networking</span>
+              <h4>Secure exposure without open ports</h4>
+              <p>Internet → Cloudflare Tunnel → Caddy → Tinyauth → internal service architecture (e.g. Jellyfin), keeping only HTTPS/443 as the public entry point. Manages DNS/DHCP and a planned ~150 static IP entries.</p>
+              <p class="tech"><strong>Stack:</strong> Cloudflare Tunnel · Caddy · WireGuard</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="case-study">
+              <div class="icon"><i class="bi bi-fingerprint" aria-hidden="true"></i></div>
+              <span class="project-type">Identity</span>
+              <h4>Self-hosted SSO with LDAP</h4>
+              <p>Centralized identity with LLDAP + Pocket-ID + Tinyauth, including debugging LDAP group synchronization and user/group filters.</p>
+              <p class="tech"><strong>Stack:</strong> LLDAP · Pocket-ID · Tinyauth</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="case-study">
+              <div class="icon"><i class="bi bi-cpu" aria-hidden="true"></i></div>
+              <span class="project-type">Home Automation</span>
+              <h4>Home Assistant + Zigbee2MQTT</h4>
+              <p>Presence automations (PIR), multi-device and multi-person notifications, and Zigbee devices over MQTT, with delay logic, helpers and anti-retrigger handling.</p>
+              <p class="tech"><strong>Stack:</strong> Home Assistant · Zigbee2MQTT · MQTT</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="case-study">
+              <div class="icon"><i class="bi bi-github" aria-hidden="true"></i></div>
+              <span class="project-type">Software</span>
+              <h4>Custom integration: ha-bicing</h4>
+              <p>A custom Home Assistant integration exposing Bicing station data (available bikes, docking stations) as entities, maintained as an open-source project on GitHub.</p>
+              <p class="tech"><strong>Stack:</strong> Python · Home Assistant · Git</p>
+              <p><a href="https://github.com/ocr99/ha-bicing" target="_blank" rel="noopener noreferrer">View repository →</a></p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
+
+  <script src="../../../assets/main.js" defer></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+</body>
+
+</html>
