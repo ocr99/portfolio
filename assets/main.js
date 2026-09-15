@@ -304,6 +304,36 @@
 
 
     /**
+     * Auto-updating "X+ years" experience/duration labels.
+     * Add data-years-since="YYYY-MM-DD" to any element and its text content
+     * gets replaced with "N+ years" (or "N years" if data-years-exact is set),
+     * calculated from that date to "now" in Madrid time.
+     */
+    window.addEventListener('DOMContentLoaded', () => {
+        const targets = select('[data-years-since]', true);
+        if (!targets.length) return;
+
+        const nowInMadrid = new Date(
+            new Date().toLocaleString('en-US', { timeZone: 'Europe/Madrid' })
+        );
+
+        targets.forEach((el) => {
+            const start = new Date(el.getAttribute('data-years-since'));
+            if (isNaN(start.getTime())) return;
+
+            let years = nowInMadrid.getFullYear() - start.getFullYear();
+            const hasAnniversaryPassed = (
+                nowInMadrid.getMonth() > start.getMonth() ||
+                (nowInMadrid.getMonth() === start.getMonth() && nowInMadrid.getDate() >= start.getDate())
+            );
+            if (!hasAnniversaryPassed) years -= 1;
+
+            const suffix = el.hasAttribute('data-years-exact') ? '' : '+';
+            el.textContent = `${years}${suffix} year${years === 1 ? '' : 's'}`;
+        });
+    });
+
+    /**
      * Update all email class to mailto Automatically
      */
     window.addEventListener('DOMContentLoaded', () => {
