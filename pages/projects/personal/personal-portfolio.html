@@ -51,6 +51,38 @@
   <!-- Title -->
   <title>Personal Portfolio | Oscar Lopez</title>
 
+  <!-- Structured Data: project + breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CreativeWork",
+        "name": "Personal Portfolio",
+        "description": "A static portfolio site built from scratch in HTML, CSS and JavaScript with Bootstrap, with no framework and no build step.",
+        "url": "https://ocr99.github.io/portfolio/pages/projects/personal/personal-portfolio.html",
+        "image": "https://ocr99.github.io/portfolio/assets/img/og-image.jpg",
+        "dateCreated": "2022-10-10",
+        "inLanguage": "en",
+        "keywords": "HTML, CSS, JavaScript, Bootstrap, Static Site, Web Design",
+        "author": {
+          "@type": "Person",
+          "name": "Oscar Lopez",
+          "url": "https://ocr99.github.io/portfolio/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ocr99.github.io/portfolio/" },
+          { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://ocr99.github.io/portfolio/pages/aboutme.html#portfolio" },
+          { "@type": "ListItem", "position": 3, "name": "Personal Portfolio" }
+        ]
+      }
+    ]
+  }
+  </script>
+
 </head>
 
 <body>

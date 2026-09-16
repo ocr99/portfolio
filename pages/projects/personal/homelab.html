@@ -38,6 +38,39 @@
   <link href="../../../assets/styles.css" rel="stylesheet">
 
   <title>Homelab | Oscar Lopez</title>
+
+  <!-- Structured Data: project + breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CreativeWork",
+        "name": "Homelab",
+        "description": "Self-hosted infrastructure on Proxmox VE: LXC and Docker, Caddy and Cloudflare Tunnel, a self-managed LDAP/SSO identity layer and Home Assistant automation.",
+        "url": "https://ocr99.github.io/portfolio/pages/projects/personal/homelab.html",
+        "image": "https://ocr99.github.io/portfolio/assets/img/og-image.jpg",
+        "dateCreated": "2021-01-01",
+        "inLanguage": "en",
+        "keywords": "Proxmox, Docker, LXC, Caddy, Cloudflare Tunnel, Home Assistant, LDAP, SSO, Self-Hosting",
+        "sameAs": "https://github.com/ocr99/ha-bicing",
+        "author": {
+          "@type": "Person",
+          "name": "Oscar Lopez",
+          "url": "https://ocr99.github.io/portfolio/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ocr99.github.io/portfolio/" },
+          { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://ocr99.github.io/portfolio/pages/aboutme.html#portfolio" },
+          { "@type": "ListItem", "position": 3, "name": "Homelab" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
