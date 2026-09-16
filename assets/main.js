@@ -143,18 +143,6 @@
     });
 
     /**
-     * Preloader
-     */
-    let preloader = select('#preloader');
-    if (preloader) {
-        const removePreloader = () => preloader.remove();
-        window.addEventListener('load', removePreloader);
-        // Safety net: never let the preloader block the page if 'load'
-        // is delayed by a slow/blocked third-party asset.
-        setTimeout(removePreloader, 4000);
-    }
-
-    /**
      * Initiate portfolio lightbox(es)
      * Deferred to window 'load' so this runs after glightbox.min.js has
      * definitely finished loading, regardless of script order/timing.
