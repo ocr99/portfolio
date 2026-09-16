@@ -797,6 +797,24 @@ section {
   padding-top: 40px;
 }
 
+/* Project pages have no nav of their own and are indexed standalone, so
+   they need a way back. */
+.project-back {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+
+.project-back a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--textcolor);
+}
+
+.project-back a:hover {
+  color: var(--contrastcolor);
+}
+
 .portfolio-details .portfolio-details-slider img {
   width: 100%;
 }
