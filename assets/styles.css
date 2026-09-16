@@ -331,17 +331,20 @@ a:hover {
   z-index: 9998;
   border: 0;
   background: none;
+  /* The UA sets `button { color: buttontext }`, which would paint the icon
+     glyph near-black on the dark page. */
+  color: inherit;
   font-size: 28px;
   transition: all 0.4s;
-  outline: none !important;
   line-height: 0;
   cursor: pointer;
   border-radius: 50px;
   padding: 5px;
 }
 
-.mobile-nav-toggle i {
-  color: var(--contrastcolor);
+.mobile-nav-toggle:focus-visible {
+  outline: 2px solid var(--contrastcolor);
+  outline-offset: 2px;
 }
 
 .mobile-nav-active {
