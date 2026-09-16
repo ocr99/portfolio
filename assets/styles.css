@@ -66,6 +66,9 @@ a:hover {
   border-radius: 3rem;
   color: var(--maincolor);
   background-color: var(--textcolor);
+  /* An <a> is inline by default, which would collapse the padding and the
+     height:100% of ::after below. A <button> was inline-block for free. */
+  display: inline-block;
   overflow: hidden;
   padding: 1rem 2rem;
   position: relative;
