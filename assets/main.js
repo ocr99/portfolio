@@ -334,22 +334,22 @@
     });
 
     /**
-     * Update all email class to mailto Automatically
+     * Update all email class to mailto Automatically.
+     * `.noTextA` anchors keep their own markup (icon, heading); those that
+     * need the address rendered inside them use a nested `.mailto-text`
+     * element, so the anchor itself is never flattened to plain text.
      */
     window.addEventListener('DOMContentLoaded', () => {
-        let currentMail = "oscar.lopezconde@outlook.com";
-        let anchors = select('a.mailto', true);
+        const currentMail = "oscar.lopezconde@outlook.com";
 
-        for(const element of anchors) {
-            if (element.classList.contains("mail-schedule")){
-                element.setAttribute("href", ("mailto:" + currentMail + "?subject=I%20would%20like%20to%20Schedule%20a%20call"));
-                element.textContent = "Schedule a Call!"
-            }
-            else {
-                element.setAttribute("href", ("mailto:" + currentMail));
-                if (!(element.classList.contains("noTextA"))) element.textContent = currentMail;
-            }
-        }
+        select('a.mailto', true).forEach((el) => {
+            el.setAttribute('href', 'mailto:' + currentMail);
+            if (!el.classList.contains('noTextA')) el.textContent = currentMail;
+        });
+
+        select('.mailto-text', true).forEach((el) => {
+            el.textContent = currentMail;
+        });
     });
 
 })()

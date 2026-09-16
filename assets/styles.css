@@ -1107,6 +1107,14 @@ section {
   color: var(--contrastcolor);
 }
 
+/* The card text lives in a <p> inside the anchor, and `.contact .info p`
+   (0,2,1) outranks a plain `a:hover` (0,1,1) — so the hover colour has to
+   be stated at matching specificity or the text stays cream. */
+.contact .info a:hover p,
+.contact .info a:focus-visible p {
+  color: var(--contrastcolor);
+}
+
 @-webkit-keyframes animate-loading {
   0% {
     transform: rotate(0deg);
