@@ -224,37 +224,6 @@
         }
     });
 
-    /*
-     * Calculate Age Automatically
-     * window.addEventListener('load', () => {
-     *     const ageEl = document.getElementById("currentAge");
-     *     if (!ageEl) return;
-     *
-     *     // Obtener fecha local en zona horaria de Madrid
-     *     const nowInMadrid = new Date(
-     *         new Date().toLocaleString('en-US', { timeZone: 'Europe/Madrid' })
-     *     );
-     *
-     *     const birthYear = 1999;
-     *     const birthMonth = 6; // Julio (mes 6 en JS)
-     *     const birthDay = 3;
-     *
-     *     let age = nowInMadrid.getFullYear() - birthYear;
-     *
-     *     const hasBirthdayPassed = (
-     *         nowInMadrid.getMonth() > birthMonth ||
-     *         (nowInMadrid.getMonth() === birthMonth && nowInMadrid.getDate() >= birthDay)
-     *     );
-     *
-     *     if (!hasBirthdayPassed) {
-     *         age -= 1;
-     *     }
-     *
-     *     ageEl.textContent = age.toString();
-     * });
-     */
-
-
     /**
      * Auto-updating "X+ years" experience/duration labels.
      * Add data-years-since="YYYY-MM-DD" to any element and its text content
