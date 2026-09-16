@@ -588,7 +588,8 @@ section {
 }
 
 /* Adjust CV to modal */
-.resume .modal .modal-body object, iframe {
+.resume .modal .modal-body object,
+.resume .modal .modal-body iframe {
   width: -webkit-fill-available;
   height: -webkit-fill-available;
 }
@@ -837,7 +838,8 @@ section {
 }
 
 /* Arrows of image swiper */
-.portfolio-details .portfolio-details-slider .swiper-button-next, .swiper-button-prev {
+.portfolio-details .portfolio-details-slider .swiper-button-next,
+.portfolio-details .portfolio-details-slider .swiper-button-prev {
   color: rgba(var(--accentcolorRGB), 0.8);
   opacity: 0;
 }
@@ -1086,7 +1088,8 @@ section {
 }
 
 /* Adjust Map to modal */
-.contact .info .modal .modal-body object, iframe {
+.contact .info .modal .modal-body object,
+.contact .info .modal .modal-body iframe {
   width: -webkit-fill-available;
   height: -webkit-fill-available;
 }
