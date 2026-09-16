@@ -151,10 +151,6 @@
         if (typeof GLightbox === 'undefined') return;
 
         GLightbox({
-            selector: '.portfolio-lightbox'
-        });
-
-        GLightbox({
             selector: '.portfolio-details-lightbox',
             width: '90%',
             height: '90vh'
