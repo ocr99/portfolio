@@ -155,42 +155,6 @@
     }
 
     /**
-     * Porfolio isotope and filter
-     * Only initialize Isotope when a filter bar actually exists on the page —
-     * otherwise it takes absolute-position control of the grid and overrides
-     * Bootstrap's own centering/layout for no reason.
-     */
-    window.addEventListener('load', () => {
-        let portfolioContainer = select('.portfolio-container');
-        let portfolioFiltersBar = select('#portfolio-flters');
-
-        if (portfolioContainer && portfolioFiltersBar && typeof Isotope !== 'undefined') {
-            let portfolioIsotope = new Isotope(portfolioContainer, {
-                itemSelector: '.portfolio-item'
-            });
-
-            let portfolioFilters = select('#portfolio-flters li', true);
-
-            on('click', '#portfolio-flters li', function(e) {
-                e.preventDefault();
-                portfolioFilters.forEach(function(el) {
-                    el.classList.remove('filter-active');
-                });
-                this.classList.add('filter-active');
-
-                portfolioIsotope.arrange({
-                    filter: this.getAttribute('data-filter')
-                });
-                portfolioIsotope.on('arrangeComplete', function() {
-                    if (typeof AOS !== 'undefined') AOS.refresh()
-                });
-            }, true);
-        }
-
-    });
-
-
-    /**
      * Initiate portfolio lightbox(es)
      * Deferred to window 'load' so this runs after glightbox.min.js has
      * definitely finished loading, regardless of script order/timing.
