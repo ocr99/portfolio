@@ -649,6 +649,10 @@ section {
 }
 
 /* Title of the wrap */
+/* These card components appear at different heading levels depending on how
+   deep the page nests them, so the size is pinned here and the selector
+   accepts either. Changing the level never changes the look. */
+.portfolio .portfolio-wrap .portfolio-info h3,
 .portfolio .portfolio-wrap .portfolio-info h4 {
   font-size: 20px;
   color: var(--textcolor);
@@ -806,6 +810,7 @@ section {
 }
 
 /* Titles */
+.contact .info h3,
 .contact .info h4 {
   padding: 0;
   font-size: 22px;
@@ -945,6 +950,7 @@ section {
               box-shadow 0.2s ease-in-out;
 }
 
+.skill-group h3,
 .skill-group h4 {
   display: flex;
   align-items: center;
@@ -955,6 +961,7 @@ section {
   font-weight: 700;
 }
 
+.skill-group h3 i,
 .skill-group h4 i {
   color: var(--textcolor);
 }
@@ -1002,9 +1009,13 @@ section {
   color: var(--contrastcolor);
 }
 
+.case-study h3,
 .case-study h4 {
   margin-bottom: 0.9rem;
   color: var(--contrastcolor);
+  /* Pinned to Bootstrap's h4 size, which is what this rendered at before the
+     selector accepted h3 too. */
+  font-size: 1.5rem;
   font-weight: 700;
 }
 
