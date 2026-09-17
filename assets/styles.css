@@ -1106,9 +1106,12 @@ section {
   background: rgba(var(--accentcolorRGB), 0.9);
 }
 
-/* Logo shown in place of a screenshot on the icon-style project card. */
-.portfolio-logo-thumb {
-  width: 5.5rem;
+/* Logo shown in place of a screenshot on the icon-style project card. Needs the
+   .portfolio-wrap prefix to outweigh the `img { width: 100% }` rule above, which
+   was stretching the logo to the full width of the card. */
+.portfolio .portfolio-wrap .portfolio-logo-thumb {
+  width: 6rem;
+  max-width: 40%;
   height: auto;
 }
 
