@@ -161,12 +161,6 @@
 
     /**
      * "Back to portfolio" link on the project pages.
-     * Those pages are also shown inside the portfolio's GLightbox overlay, and
-     * there the link's target="_top" points at the very document already
-     * loaded in the top window. The browser treats that as a same-document
-     * fragment navigation: it scrolls and never reloads, so the overlay stays
-     * on top and the link looks dead. Inside the overlay, close it instead.
-     * Opened standalone the link is left alone and navigates normally.
      */
     on('click', '.project-back a', function (e) {
         if (window.self === window.top) return;
@@ -186,9 +180,6 @@
 
     /**
      * Portfolio details slider
-     * Only present on pages that load Swiper (e.g. elboncami.html,
-     * personal-portfolio.html) — guarded so index.html, which doesn't
-     * load Swiper, doesn't throw a "Swiper is not defined" error.
      */
     window.addEventListener('load', () => {
         if (typeof Swiper === 'undefined') return;
