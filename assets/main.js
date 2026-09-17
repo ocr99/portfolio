@@ -150,11 +150,38 @@
     window.addEventListener('load', () => {
         if (typeof GLightbox === 'undefined') return;
 
-        GLightbox({
+        // Exposed on window so a project page loaded in the overlay's iframe
+        // can reach it from window.top (see the back link handler below).
+        window.portfolioLightbox = GLightbox({
             selector: '.portfolio-details-lightbox',
             width: '90%',
             height: '90vh'
         });
+    });
+
+    /**
+     * "Back to portfolio" link on the project pages.
+     * Those pages are also shown inside the portfolio's GLightbox overlay, and
+     * there the link's target="_top" points at the very document already
+     * loaded in the top window. The browser treats that as a same-document
+     * fragment navigation: it scrolls and never reloads, so the overlay stays
+     * on top and the link looks dead. Inside the overlay, close it instead.
+     * Opened standalone the link is left alone and navigates normally.
+     */
+    on('click', '.project-back a', function (e) {
+        if (window.self === window.top) return;
+
+        let parentLightbox;
+        try {
+            parentLightbox = window.top.portfolioLightbox;
+        } catch (err) {
+            return; // Different origin: leave the default behaviour alone.
+        }
+        if (!parentLightbox) return;
+
+        e.preventDefault();
+        parentLightbox.close();
+        if (this.hash) window.top.location.hash = this.hash;
     });
 
     /**
