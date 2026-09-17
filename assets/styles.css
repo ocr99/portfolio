@@ -503,46 +503,56 @@ section {
   will-change: transform;
 }
 
+/* The sidebar (9997) and the mobile nav toggle (9998) are fixed, so they would
+   paint over Bootstrap's default modal layer (1050-1055). */
+#cvModal {
+  z-index: 10000;
+}
+
+.modal-backdrop {
+  z-index: 9999;
+}
+
 /* Whole Modal */
-.resume .modal .modal-dialog .modal-content {
+#cvModal .modal-dialog .modal-content {
   background-color: var(--accentcolor);
   color: var(--textcolor);
 }
 
 /* Line Separator Modal Header to Body  */
-.resume .modal .modal-header {
+#cvModal .modal-header {
   border-bottom: solid var(--textcolor);
 }
 
 /* Close X Button */
-.resume .modal .modal-header button {
+#cvModal .modal-header button {
   color: var(--contrastcolor);
 }
 
 /* Language tabs */
-.resume .modal .nav-tabs {
+#cvModal .nav-tabs {
   border-bottom-color: rgba(var(--textcolorRGB), 0.3);
 }
 
-.resume .modal .nav-tabs .nav-link {
+#cvModal .nav-tabs .nav-link {
   color: var(--textcolor);
   border: 0;
   border-radius: 0.4rem 0.4rem 0 0;
 }
 
-.resume .modal .nav-tabs .nav-link:hover {
+#cvModal .nav-tabs .nav-link:hover {
   color: var(--contrastcolor);
   background-color: rgba(var(--maincolorRGB), 0.2);
 }
 
-.resume .modal .nav-tabs .nav-link.active {
+#cvModal .nav-tabs .nav-link.active {
   color: var(--contrastcolor);
   background-color: rgba(var(--maincolorRGB), 0.35);
 }
 
 /* The PDF preview. Sized in vh rather than filling the dialog, because the
    old -webkit-fill-available never worked outside WebKit. */
-.resume .modal .modal-body iframe {
+#cvModal .modal-body iframe {
   width: 100%;
   height: 60vh;
   border: 0;
@@ -550,38 +560,45 @@ section {
   background-color: var(--maincolor);
 }
 
-.resume .modal .cv-actions {
+/* "View online" sits above the preview, the downloads live in the footer. */
+#cvModal .cv-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  justify-content: center;
-  padding-top: 1rem;
+  justify-content: flex-end;
+  padding-bottom: 0.75rem;
+}
+
+#cvModal .cv-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 /* Separator Modal Body and Footer */
-.resume .modal .modal-footer {
+#cvModal .modal-footer {
   border-top: solid var(--textcolor);
 }
 
 /* Bottom Buttons */
-.resume .modal .btn-primary {
+#cvModal .btn-primary {
   background-color: var(--maincolor);
   color: var(--textcolor);
   border-color: var(--maincolor);
 }
 
-.resume .modal .btn-primary:hover {
+#cvModal .btn-primary:hover {
   background-color: rgba(var(--maincolorRGB), 0.9);
   color: var(--contrastcolor);
   border-color: var(--maincolor);
 }
 
-.resume .modal .btn-outline-secondary {
+#cvModal .btn-outline-secondary {
   color: var(--textcolor);
   border-color: var(--textcolor);
 }
 
-.resume .modal .btn-outline-secondary:hover {
+#cvModal .btn-outline-secondary:hover {
   background-color: rgba(var(--maincolorRGB), 0.2);
   color: var(--contrastcolor);
 }

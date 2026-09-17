@@ -308,58 +308,6 @@
                   <button type="button" class="mycv fw-bold" data-bs-toggle="modal" data-bs-target="#cvModal">View my CV</button>
                 </div>
 
-                <div class="modal fade" id="cvModal" tabindex="-1" role="dialog" aria-labelledby="cvModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-lg modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h2 class="modal-title fs-5" id="cvModalLabel">Oscar Lopez CV</h2>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-
-                        <ul class="nav nav-tabs" role="tablist">
-                          <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="cv-en-tab" data-bs-toggle="tab" data-bs-target="#cv-en" type="button" role="tab" aria-controls="cv-en" aria-selected="true">English</button>
-                          </li>
-                          <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="cv-es-tab" data-bs-toggle="tab" data-bs-target="#cv-es" type="button" role="tab" aria-controls="cv-es" aria-selected="false">Español</button>
-                          </li>
-                        </ul>
-
-                        <div class="tab-content pt-3">
-                          <div class="tab-pane fade show active" id="cv-en" role="tabpanel" aria-labelledby="cv-en-tab">
-                            <iframe src="../assets/downloads/Oscar-Lopez-CV-English.pdf#toolbar=0&amp;navpanes=0&amp;view=fitH" title="Oscar Lopez CV in English" loading="lazy"></iframe>
-                            <div class="cv-actions">
-                              <a class="btn btn-outline-secondary" href="../assets/downloads/Oscar-Lopez-CV-English.pdf" download role="button">
-                                <i class="bi bi-download" aria-hidden="true"></i> Download PDF
-                              </a>
-                              <a class="btn btn-outline-secondary" href="https://rxresu.me/oscarlopez/cv-english" target="_blank" rel="noopener noreferrer" role="button">
-                                <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View online
-                              </a>
-                            </div>
-                          </div>
-
-                          <div class="tab-pane fade" id="cv-es" role="tabpanel" aria-labelledby="cv-es-tab">
-                            <iframe src="../assets/downloads/Oscar-Lopez-CV-Spanish.pdf#toolbar=0&amp;navpanes=0&amp;view=fitH" title="Oscar Lopez CV in Spanish" loading="lazy"></iframe>
-                            <div class="cv-actions">
-                              <a class="btn btn-outline-secondary" href="../assets/downloads/Oscar-Lopez-CV-Spanish.pdf" download role="button">
-                                <i class="bi bi-download" aria-hidden="true"></i> Descargar PDF
-                              </a>
-                              <a class="btn btn-outline-secondary" href="https://rxresu.me/oscarlopez/cv-espanol" target="_blank" rel="noopener noreferrer" role="button">
-                                <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> Ver online
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
               </div>
             </section>
             <!-- End Resume Section -->
@@ -542,6 +490,62 @@
       </footer>
       <!-- End Footer -->
  
+      <!-- The CV modal sits outside #main because AOS leaves a transform on the section containers, and a transformed ancestor makes position: fixed resolve against it instead of the viewport. -->
+      <div class="modal fade" id="cvModal" tabindex="-1" role="dialog" aria-labelledby="cvModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title fs-5" id="cvModalLabel">Oscar Lopez CV</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+              <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="cv-en-tab" data-bs-toggle="tab" data-bs-target="#cv-en" type="button" role="tab" aria-controls="cv-en" aria-selected="true">English</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="cv-es-tab" data-bs-toggle="tab" data-bs-target="#cv-es" type="button" role="tab" aria-controls="cv-es" aria-selected="false">Español</button>
+                </li>
+              </ul>
+
+              <div class="tab-content pt-3">
+                <div class="tab-pane fade show active" id="cv-en" role="tabpanel" aria-labelledby="cv-en-tab">
+                  <div class="cv-actions">
+                    <a class="btn btn-outline-secondary btn-sm" href="https://rxresu.me/oscarlopez/cv-english" target="_blank" rel="noopener noreferrer" role="button">
+                      <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View online
+                    </a>
+                  </div>
+                  <iframe src="../assets/downloads/Oscar-Lopez-CV-English.pdf#toolbar=0&amp;navpanes=0&amp;view=fitH" title="Oscar Lopez CV in English" loading="lazy"></iframe>
+                </div>
+
+                <div class="tab-pane fade" id="cv-es" role="tabpanel" aria-labelledby="cv-es-tab">
+                  <div class="cv-actions">
+                    <a class="btn btn-outline-secondary btn-sm" href="https://rxresu.me/oscarlopez/cv-espanol" target="_blank" rel="noopener noreferrer" role="button">
+                      <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> Ver online
+                    </a>
+                  </div>
+                  <iframe src="../assets/downloads/Oscar-Lopez-CV-Spanish.pdf#toolbar=0&amp;navpanes=0&amp;view=fitH" title="Oscar Lopez CV in Spanish" loading="lazy"></iframe>
+                </div>
+              </div>
+
+            </div>
+            <!-- The downloads sit in the footer, which stays put while the preview scrolls. -->
+            <div class="modal-footer">
+              <div class="cv-downloads me-auto">
+                <a class="btn btn-outline-secondary" href="../assets/downloads/Oscar-Lopez-CV-English.pdf" download role="button">
+                  <i class="bi bi-download" aria-hidden="true"></i> CV English
+                </a>
+                <a class="btn btn-outline-secondary" href="../assets/downloads/Oscar-Lopez-CV-Spanish.pdf" download role="button">
+                  <i class="bi bi-download" aria-hidden="true"></i> CV Español
+                </a>
+              </div>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Back to Top Button -->
       <a href="#" class="back-to-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
  
