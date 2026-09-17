@@ -1071,9 +1071,10 @@ section {
   background: rgba(var(--accentcolorRGB), 0.9);
 }
 
-.portfolio-icon-thumb {
-  font-size: 4.5rem;
-  color: var(--textcolor);
+/* Logo shown in place of a screenshot on the icon-style project card. */
+.portfolio-logo-thumb {
+  width: 5.5rem;
+  height: auto;
 }
 
 /* Contact cards */
