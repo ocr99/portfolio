@@ -569,6 +569,22 @@ section {
   padding-bottom: 0.75rem;
 }
 
+/* Phones don't render a PDF in an iframe: Chrome on Android swaps in a
+   download placeholder and iOS Safari shows page one with no way to scroll,
+   so the preview is a dead box either way. Drop it and leave the "View
+   online" link and the footer downloads, which do work. Has to sit after the
+   two rules it overrides, since it matches them at equal specificity. */
+@media (max-width: 767px) {
+  #cvModal .modal-body iframe {
+    display: none;
+  }
+
+  #cvModal .cv-actions {
+    justify-content: center;
+    padding-bottom: 0;
+  }
+}
+
 #cvModal .cv-downloads {
   display: flex;
   flex-wrap: wrap;
