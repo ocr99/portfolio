@@ -918,7 +918,15 @@ section {
   color: var(--textcolor);
   font-size: 14px;
   padding: 30px 0;
-  padding-left: 100px;
+}
+
+/* The sidebar only offsets the page from 992px up (see `#main`), so the footer's
+   matching offset has to be scoped the same way — unscoped it shifted the
+   centred footer to the right of the viewport on phones. */
+@media (min-width: 992px) {
+  #footer {
+    padding-left: 100px;
+  }
 }
 
 #footer h3 {
@@ -947,7 +955,9 @@ section {
   color: var(--contrastcolor);
   line-height: 1;
   padding: 8px 0;
-  margin-right: 4px;
+  /* Symmetric so the inline-block row centres exactly; a trailing-only margin
+     left the icons off-centre against the text above them. */
+  margin: 0 2px;
   border-radius: 50%;
   text-align: center;
   width: 36px;
