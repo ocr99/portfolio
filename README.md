@@ -13,7 +13,7 @@ My personal portfolio, built as a static page in HTML, CSS and JS exclusively. N
 
 **→ [ocr99.github.io/portfolio](https://ocr99.github.io/portfolio/)**
 
-![Portfolio preview](assets/img/Portfolio-img-1.webp)
+![Portfolio preview](assets/img/portfolio-img-1.webp)
 
 ## About me
 
