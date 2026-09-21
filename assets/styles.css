@@ -769,12 +769,22 @@ section {
   color: var(--contrastcolor);
 }
 
+/* One box for every slide, on every project page. Otherwise each screenshot
+   sets its own height and the slider jumps between slides, and El Bon Camí
+   (taller shots) ends up much bigger than Personal Portfolio. */
+.portfolio-details .portfolio-details-slider .swiper-slide {
+  aspect-ratio: 2 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .portfolio-details .portfolio-details-slider img {
   width: 100%;
-  /* Required alongside the width/height attributes on these images: without
-     it the height attribute is honoured as a real height and the slides
-     stretch on narrow viewports. */
-  height: auto;
+  height: 100%;
+  /* contain rather than cover: these are the screenshots the page exists to
+     show, so a tall one shrinks to fit instead of getting cropped. */
+  object-fit: contain;
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination {
