@@ -235,7 +235,15 @@
                 once: true,
                 mirror: false
             })
+            return;
         }
+
+        // aos.css parks every [data-aos] element at opacity: 0 and waits for
+        // aos.js to add .aos-animate. If the stylesheet lands but the script
+        // doesn't (CDN outage, SRI mismatch, blocked request), the whole page
+        // stays blank. Those rules are attribute selectors, so dropping the
+        // attribute is enough to get the content back.
+        select('[data-aos]', true).forEach((el) => el.removeAttribute('data-aos'));
     });
 
     /**
