@@ -13,7 +13,7 @@ Mi portfolio personal, hecho como página estática solo con HTML, CSS y JS. Sin
 
 **→ [ocr99.github.io/portfolio](https://ocr99.github.io/portfolio/)**
 
-![Vista previa del portfolio](assets/img/Portfolio-img-1.webp)
+![Vista previa del portfolio](assets/img/portfolio-img-1.webp)
 
 ## Sobre mí
 
