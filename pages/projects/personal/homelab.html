@@ -4,8 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta name="description" content="Homelab — self-hosted infrastructure by Oscar Lopez: Proxmox virtualization, Docker, networking, reverse proxy, identity/SSO and Home Assistant automation.">
+  <meta name="description" content="Homelab: self-hosted infrastructure by Oscar Lopez with Proxmox virtualization, Docker, networking, reverse proxy, identity/SSO and Home Assistant automation.">
   <meta name="keywords" content="Homelab, Proxmox, Docker, LXC, Cloudflare Tunnel, Home Assistant, Self-Hosting, Networking, DNS, DHCP">
+  <meta name="author" content="Oscar Lopez">
   <link rel="canonical" href="https://ocr99.github.io/portfolio/pages/projects/personal/homelab.html">
 
   <meta property="og:title" content="Homelab | Oscar Lopez">
@@ -16,11 +17,14 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Oscar Lopez Portfolio">
+  <meta property="og:image:alt" content="Oscar Lopez, Business Intelligence Developer">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Homelab | Oscar Lopez">
   <meta name="twitter:description" content="Self-hosted infrastructure: Proxmox, Docker, networking, reverse proxy, identity/SSO and Home Assistant automation.">
   <meta name="twitter:image" content="https://ocr99.github.io/portfolio/assets/img/og-image.jpg">
+  <meta name="twitter:image:alt" content="Oscar Lopez, Business Intelligence Developer">
 
   <link rel="manifest" href="../../../assets/site.webmanifest">
   <link rel="apple-touch-icon" sizes="180x180" href="../../../assets/favicon/apple-touch-icon.png">
@@ -28,13 +32,45 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/favicon/favicon-16x16.png">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" integrity="sha384-xeJqLiuOvjUBq3iGOjvSQSIlwrpqjSHXpduPd6rQpuiM3f5/ijby8pCsnbu5S81n" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous"/>
 
   <link href="../../../assets/styles.css" rel="stylesheet">
 
   <title>Homelab | Oscar Lopez</title>
+
+  <!-- Structured Data: project + breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CreativeWork",
+        "name": "Homelab",
+        "description": "Self-hosted infrastructure on Proxmox VE: LXC and Docker, Caddy and Cloudflare Tunnel, a self-managed LDAP/SSO identity layer and Home Assistant automation.",
+        "url": "https://ocr99.github.io/portfolio/pages/projects/personal/homelab.html",
+        "image": "https://ocr99.github.io/portfolio/assets/img/og-image.jpg",
+        "dateCreated": "2021-01-01",
+        "inLanguage": "en",
+        "keywords": "Proxmox, Docker, LXC, Caddy, Cloudflare Tunnel, Home Assistant, LDAP, SSO, Self-Hosting",
+        "sameAs": "https://github.com/ocr99/ha-bicing",
+        "author": {
+          "@type": "Person",
+          "name": "Oscar Lopez",
+          "url": "https://ocr99.github.io/portfolio/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ocr99.github.io/portfolio/" },
+          { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://ocr99.github.io/portfolio/pages/aboutme.html#portfolio" },
+          { "@type": "ListItem", "position": 3, "name": "Homelab" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -44,9 +80,17 @@
     <section id="portfolio-details" class="portfolio-details">
       <div class="container" data-aos="fade-up">
 
+        <!-- target="_top" handles the standalone case. Opened inside the portfolio
+                  lightbox, main.js intercepts this and closes the overlay instead. -->
+        <p class="project-back">
+          <a href="../../aboutme.html#portfolio" target="_top">
+            <i class="bi bi-arrow-left-short" aria-hidden="true"></i> Back to portfolio
+          </a>
+        </p>
+
         <h1 class="text-center fs-1 fw-bold font-monospace"><span class="blink contrastcolor">&GT;</span> Homelab</h1>
         <p class="section-lead text-center pt-2 pb-4">
-          <span class="blink contrastcolor">&GT;</span> Personal self-hosted infrastructure I've designed, deployed and maintained for over <span data-years-since="2021-01-01">4+ years</span>:
+          <span class="blink contrastcolor">&GT;</span> Personal self-hosted infrastructure I've designed, deployed and maintained for over <span data-years-since="2021-01-01">5+ years</span>:
         </p>
 
         <div class="row gy-4">
@@ -56,7 +100,7 @@
               <ul>
                 <li><strong>Category</strong>: Self-Hosted Infrastructure</li>
                 <li><strong>Role</strong>: Design, deployment &amp; maintenance</li>
-                <li><strong>Running since</strong>: <span data-years-since="2021-01-01">4+ years</span></li>
+                <li><strong>Running since</strong>: <span data-years-since="2021-01-01">5+ years</span></li>
                 <li><strong>Host</strong>: HP ProDesk · Proxmox VE 9</li>
               </ul>
             </div>
@@ -219,11 +263,10 @@
 
   </main>
 
-  <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
 
   <script src="../../../assets/main.js" defer></script>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous" defer></script>
 </body>
 
 </html>

@@ -5,25 +5,29 @@
   <!-- Classic Meta Declarations -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta name="description" content="Personal Portfolio — an early static web project by Oscar Lopez, built from scratch in HTML, CSS and JavaScript.">
+  <meta name="description" content="Personal Portfolio: an early static web project by Oscar Lopez, built from scratch in HTML, CSS and JavaScript.">
   <meta name="keywords" content="Personal Portfolio, HTML, CSS, JavaScript, Bootstrap, Web Design">
+  <meta name="author" content="Oscar Lopez">
   <link rel="canonical" href="https://ocr99.github.io/portfolio/pages/projects/personal/personal-portfolio.html">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Personal Portfolio | Oscar Lopez">
-  <meta property="og:description" content="Personal Portfolio — an early static web project by Oscar Lopez, built from scratch in HTML, CSS and JavaScript.">
+  <meta property="og:description" content="Personal Portfolio: an early static web project by Oscar Lopez, built from scratch in HTML, CSS and JavaScript.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ocr99.github.io/portfolio/pages/projects/personal/personal-portfolio.html">
   <meta property="og:image" content="https://ocr99.github.io/portfolio/assets/img/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Oscar Lopez Portfolio">
+  <meta property="og:image:alt" content="Oscar Lopez, Business Intelligence Developer">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Personal Portfolio | Oscar Lopez">
-  <meta name="twitter:description" content="Personal Portfolio — an early static web project by Oscar Lopez, built from scratch in HTML, CSS and JavaScript.">
+  <meta name="twitter:description" content="Personal Portfolio: an early static web project by Oscar Lopez, built from scratch in HTML, CSS and JavaScript.">
   <meta name="twitter:image" content="https://ocr99.github.io/portfolio/assets/img/og-image.jpg">
+  <meta name="twitter:image:alt" content="Oscar Lopez, Business Intelligence Developer">
 
   <!-- Site Manifest -->
   <link rel="manifest" href="../../../assets/site.webmanifest">
@@ -35,24 +39,49 @@
 
   <!-- Import Bootstrap and main css and js files -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-  <!-- AOS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" integrity="sha384-xeJqLiuOvjUBq3iGOjvSQSIlwrpqjSHXpduPd6rQpuiM3f5/ijby8pCsnbu5S81n" crossorigin="anonymous">
 
   <!-- Swiper Bundle -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-  <script defer src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-
-  <!-- Glightbox Bundle -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/css/glightbox.min.css" />
-  <script defer src="https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/js/glightbox.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.css" integrity="sha384-OVtDJ2WfU22geHR8xWErSSHJMaH21QOP9w33a+A2MzyE4uxDS2/5rhIw9YZkWv5R" crossorigin="anonymous"/>
+  <script defer src="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.js" integrity="sha384-kLg4yw7ysk2F34aYhHIrdq/AXIkHzZ808L3af45jUqWQoMPN8VnJneCjOR8+THSG" crossorigin="anonymous"></script>
 
   <!-- Main CSS -->
   <link href="../../../assets/styles.css" rel="stylesheet">
 
   <!-- Title -->
   <title>Personal Portfolio | Oscar Lopez</title>
+
+  <!-- Structured Data: project + breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CreativeWork",
+        "name": "Personal Portfolio",
+        "description": "A static portfolio site built from scratch in HTML, CSS and JavaScript with Bootstrap, with no framework and no build step.",
+        "url": "https://ocr99.github.io/portfolio/pages/projects/personal/personal-portfolio.html",
+        "image": "https://ocr99.github.io/portfolio/assets/img/og-image.jpg",
+        "dateCreated": "2022-10-10",
+        "inLanguage": "en",
+        "keywords": "HTML, CSS, JavaScript, Bootstrap, Static Site, Web Design",
+        "author": {
+          "@type": "Person",
+          "name": "Oscar Lopez",
+          "url": "https://ocr99.github.io/portfolio/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ocr99.github.io/portfolio/" },
+          { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://ocr99.github.io/portfolio/pages/aboutme.html#portfolio" },
+          { "@type": "ListItem", "position": 3, "name": "Personal Portfolio" }
+        ]
+      }
+    ]
+  }
+  </script>
 
 </head>
 
@@ -64,6 +93,14 @@
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
 
+        <!-- target="_top" handles the standalone case. Opened inside the portfolio
+                  lightbox, main.js intercepts this and closes the overlay instead. -->
+        <p class="project-back">
+          <a href="../../aboutme.html#portfolio" target="_top">
+            <i class="bi bi-arrow-left-short" aria-hidden="true"></i> Back to portfolio
+          </a>
+        </p>
+
         <div class="row gy-4">
 
           <div class="col-lg-8">
@@ -74,15 +111,15 @@
                 <div class="swiper-wrapper align-items-center">
 
                   <div class="swiper-slide">
-                    <img src="../../../assets/img/Portfolio-img-1.png" alt="Personal portfolio homepage screenshot" loading="lazy" decoding="async">
+                    <img src="../../../assets/img/Portfolio-img-1.webp" alt="Personal portfolio homepage screenshot" width="1600" height="855" decoding="async">
                   </div>
 
                   <div class="swiper-slide">
-                    <img src="../../../assets/img/Portfolio-img-2.png" alt="Personal portfolio about section screenshot" loading="lazy" decoding="async">
+                    <img src="../../../assets/img/Portfolio-img-2.webp" alt="Personal portfolio about section screenshot" width="1600" height="854" loading="lazy" decoding="async">
                   </div>
 
                   <div class="swiper-slide">
-                    <img src="../../../assets/img/Portfolio-img-3.png" alt="Personal portfolio projects section screenshot" loading="lazy" decoding="async">
+                    <img src="../../../assets/img/Portfolio-img-3.webp" alt="Personal portfolio projects section screenshot" width="1600" height="889" loading="lazy" decoding="async">
                   </div>
 
                 </div>
@@ -122,17 +159,10 @@
   </main>
   <!-- End #main -->
 
-  <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
 
   <!-- SCRIPT FILES -->
   <script src="../../../assets/main.js" defer></script>
-
-  <!-- ==========Import Extra Libraries========== -->
-  <!-- AOS -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
-  <!-- Isotope -->
-  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js" defer></script>
 </body>
 
 </html>

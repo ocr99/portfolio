@@ -66,6 +66,9 @@ a:hover {
   border-radius: 3rem;
   color: var(--maincolor);
   background-color: var(--textcolor);
+  /* An <a> is inline by default, which would collapse the padding and the
+     height:100% of ::after below. A <button> was inline-block for free. */
+  display: inline-block;
   overflow: hidden;
   padding: 1rem 2rem;
   position: relative;
@@ -140,55 +143,6 @@ a:hover {
 .back-to-top.active {
   visibility: visible;
   opacity: 1;
-}
-
-/*--------------------------------------------------------------
-# Preloader
---------------------------------------------------------------*/
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999;
-  overflow: hidden;
-  background: var(--maincolor);
-}
-
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid var(--accentcolor);
-  border-top-color: var(--textcolor);
-  border-bottom-color: var(--textcolor);
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  -webkit-animation: animate-preloader 1s linear infinite;
-  animation: animate-preloader 1s linear infinite;
-}
-
-@-webkit-keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 /*--------------------------------------------------------------
@@ -328,17 +282,20 @@ a:hover {
   z-index: 9998;
   border: 0;
   background: none;
+  /* The UA sets `button { color: buttontext }`, which would paint the icon
+     glyph near-black on the dark page. */
+  color: inherit;
   font-size: 28px;
   transition: all 0.4s;
-  outline: none !important;
   line-height: 0;
   cursor: pointer;
   border-radius: 50px;
   padding: 5px;
 }
 
-.mobile-nav-toggle i {
-  color: var(--contrastcolor);
+.mobile-nav-toggle:focus-visible {
+  outline: 2px solid var(--contrastcolor);
+  outline-offset: 2px;
 }
 
 .mobile-nav-active {
@@ -436,15 +393,6 @@ section {
 
 .about .content p:last-child {
   margin-bottom: 0;
-}
-
-.about .content .nodecor:hover {
-  text-decoration: none;
-  color: var(--textcolor);
-}
-
-.about .content .nodecor:hover + a {
-  color: var(--contrastcolor);
 }
 
 /*--------------------------------------------------------------
@@ -555,62 +503,118 @@ section {
   will-change: transform;
 }
 
+/* The sidebar (9997) and the mobile nav toggle (9998) are fixed, so they would
+   paint over Bootstrap's default modal layer (1050-1055). */
+#cvModal {
+  z-index: 10000;
+}
+
+.modal-backdrop {
+  z-index: 9999;
+}
+
 /* Whole Modal */
-.resume .modal .modal-dialog .modal-content {
+#cvModal .modal-dialog .modal-content {
   background-color: var(--accentcolor);
   color: var(--textcolor);
 }
 
 /* Line Separator Modal Header to Body  */
-.resume .modal .modal-header {
+#cvModal .modal-header {
   border-bottom: solid var(--textcolor);
 }
 
 /* Close X Button */
-.resume .modal .modal-header button {
+#cvModal .modal-header button {
   color: var(--contrastcolor);
 }
 
-/* Modal Height to almost all window */
-.resume .modal .modal-dialog {
-  height: 90%;
+/* Language tabs */
+#cvModal .nav-tabs {
+  border-bottom-color: rgba(var(--textcolorRGB), 0.3);
 }
 
-/* Content Inside Modal to Occupy All Modal */
-.resume .modal .modal-content {
-  height: 100%;
+#cvModal .nav-tabs .nav-link {
+  color: var(--textcolor);
+  border: 0;
+  border-radius: 0.4rem 0.4rem 0 0;
 }
 
-/* Adjust CV to modal */
-.resume .modal .modal-body object, iframe {
-  width: -webkit-fill-available;
-  height: -webkit-fill-available;
+#cvModal .nav-tabs .nav-link:hover {
+  color: var(--contrastcolor);
+  background-color: rgba(var(--maincolorRGB), 0.2);
+}
+
+#cvModal .nav-tabs .nav-link.active {
+  color: var(--contrastcolor);
+  background-color: rgba(var(--maincolorRGB), 0.35);
+}
+
+/* The PDF preview. Sized in vh rather than filling the dialog, because the
+   old -webkit-fill-available never worked outside WebKit. */
+#cvModal .modal-body iframe {
+  width: 100%;
+  height: 60vh;
+  border: 0;
+  border-radius: 0.4rem;
+  background-color: var(--maincolor);
+}
+
+/* "View online" sits above the preview, the downloads live in the footer. */
+#cvModal .cv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  padding-bottom: 0.75rem;
+}
+
+/* Phones don't render a PDF in an iframe: Chrome on Android swaps in a
+   download placeholder and iOS Safari shows page one with no way to scroll,
+   so the preview is a dead box either way. Drop it and leave the "View
+   online" link and the footer downloads, which do work. Has to sit after the
+   two rules it overrides, since it matches them at equal specificity. */
+@media (max-width: 767px) {
+  #cvModal .modal-body iframe {
+    display: none;
+  }
+
+  #cvModal .cv-actions {
+    justify-content: center;
+    padding-bottom: 0;
+  }
+}
+
+#cvModal .cv-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 /* Separator Modal Body and Footer */
-.resume .modal .modal-footer {
+#cvModal .modal-footer {
   border-top: solid var(--textcolor);
 }
 
 /* Bottom Buttons */
-.resume .modal .btn-primary {
+#cvModal .btn-primary {
   background-color: var(--maincolor);
   color: var(--textcolor);
   border-color: var(--maincolor);
 }
 
-.resume .modal .btn-primary:hover {
+#cvModal .btn-primary:hover {
   background-color: rgba(var(--maincolorRGB), 0.9);
   color: var(--contrastcolor);
   border-color: var(--maincolor);
 }
 
-.resume .modal .btn-outline-secondary {
+#cvModal .btn-outline-secondary {
   color: var(--textcolor);
   border-color: var(--textcolor);
 }
 
-.resume .modal .btn-outline-secondary:hover {
+#cvModal .btn-outline-secondary:hover {
   background-color: rgba(var(--maincolorRGB), 0.2);
   color: var(--contrastcolor);
 }
@@ -620,40 +624,6 @@ section {
 --------------------------------------------------------------*/
 .portfolio .portfolio-item {
   margin-bottom: 30px;
-}
-
-/* Filter Bar */
-.portfolio #portfolio-flters {
-  padding: 0;
-  margin: 0 auto 25px auto;
-  list-style: none;
-  text-align: center;
-  background: var(--accentcolor);
-  border-radius: 50px;
-  padding: 2px 15px;
-}
-
-/* Filter Bar Text */
-.portfolio #portfolio-flters li {
-  cursor: pointer;
-  display: inline-block;
-  padding: 10px 15px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-  text-transform: uppercase;
-  color: var(--textcolor);
-  margin-bottom: 5px;
-  transition: all 0.3s ease-in-out;
-}
-
-.portfolio #portfolio-flters li:hover,
-.portfolio #portfolio-flters li.filter-active {
-  color: var(--contrastcolor);
-}
-
-.portfolio #portfolio-flters li:last-child {
-  margin-right: 0;
 }
 
 /* Outside Shadow of Each Box */
@@ -730,6 +700,10 @@ section {
 }
 
 /* Title of the wrap */
+/* These card components appear at different heading levels depending on how
+   deep the page nests them, so the size is pinned here and the selector
+   accepts either. Changing the level never changes the look. */
+.portfolio .portfolio-wrap .portfolio-info h3,
 .portfolio .portfolio-wrap .portfolio-info h4 {
   font-size: 20px;
   color: var(--textcolor);
@@ -743,23 +717,6 @@ section {
   text-transform: uppercase;
   padding: 0;
   margin: 0;
-}
-
-.portfolio .portfolio-wrap .portfolio-links {
-  text-align: center;
-  z-index: 4;
-}
-
-.portfolio .portfolio-wrap .portfolio-links a {
-  color: var(--accentcolor);
-  margin: 0 2px;
-  font-size: 28px;
-  display: inline-block;
-  transition: 0.3s;
-}
-
-.portfolio .portfolio-wrap .portfolio-links a:hover {
-  color: var(--textcolor);
 }
 
 .portfolio .portfolio-wrap:hover::before {
@@ -791,8 +748,30 @@ section {
   padding-top: 40px;
 }
 
+/* Project pages have no nav of their own and are indexed standalone, so
+   they need a way back. */
+.project-back {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+
+.project-back a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--textcolor);
+}
+
+.project-back a:hover {
+  color: var(--contrastcolor);
+}
+
 .portfolio-details .portfolio-details-slider img {
   width: 100%;
+  /* Required alongside the width/height attributes on these images: without
+     it the height attribute is honoured as a real height and the slides
+     stretch on narrow viewports. */
+  height: auto;
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination {
@@ -813,7 +792,8 @@ section {
 }
 
 /* Arrows of image swiper */
-.portfolio-details .portfolio-details-slider .swiper-button-next, .swiper-button-prev {
+.portfolio-details .portfolio-details-slider .swiper-button-next,
+.portfolio-details .portfolio-details-slider .swiper-button-prev {
   color: rgba(var(--accentcolorRGB), 0.8);
   opacity: 0;
 }
@@ -856,142 +836,6 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Services
---------------------------------------------------------------*/
-/* Outside Shadow Box */
-.services .icon-box {
-  text-align: center;
-  padding: 70px 20px 80px 20px;
-  transition: all ease-in-out 0.3s;
-  background: rgba(var(--accentcolorRGB), 0.5);
-  box-shadow: 0px 5px 90px 0px rgba(var(--accentcolorRGB), 0.01);
-  border-radius: 10%;
-}
-
-.services .icon-box .icon {
-  margin: 0 auto;
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: ease-in-out 0.3s;
-  position: relative;
-}
-
-.services .icon-box .icon i {
-  font-size: 36px;
-  transition: 0.5s;
-  position: relative;
-}
-
-.services .icon-box .icon svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.services .icon-box .icon svg path {
-  transition: 0.5s;
-  fill: var(--accentcolor);
-}
-
-.services .icon-box h4 {
-  font-weight: 600;
-  margin: 10px 0 15px 0;
-  font-size: 22px;
-}
-
-/* Title of each box */
-.services .icon-box h4 a {
-  color: var(--contrastcolor);
-  transition: ease-in-out 0.3s;
-}
-
-.services .icon-box p {
-  line-height: 24px;
-  font-size: 14px;
-  margin-bottom: 0;
-}
-
-.services .icon-box:hover {
-  border-color: #fff;
-  box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.08);
-}
-
-.services .iconbox-blue i {
-  color: #47aeff;
-}
-
-.services .iconbox-blue:hover .icon i {
-  color: #fff;
-}
-
-.services .iconbox-blue:hover .icon path {
-  fill: #47aeff;
-}
-
-.services .iconbox-orange i {
-  color: #ffa76e;
-}
-
-.services .iconbox-orange:hover .icon i {
-  color: #fff;
-}
-
-.services .iconbox-orange:hover .icon path {
-  fill: #ffa76e;
-}
-
-.services .iconbox-pink i {
-  color: #e80368;
-}
-
-.services .iconbox-pink:hover .icon i {
-  color: #fff;
-}
-
-.services .iconbox-pink:hover .icon path {
-  fill: #e80368;
-}
-
-.services .iconbox-yellow i {
-  color: #ffbb2c;
-}
-
-.services .iconbox-yellow:hover .icon i {
-  color: #fff;
-}
-
-.services .iconbox-yellow:hover .icon path {
-  fill: #ffbb2c;
-}
-
-.services .iconbox-red i {
-  color: #ff5828;
-}
-
-.services .iconbox-red:hover .icon i {
-  color: #fff;
-}
-
-.services .iconbox-red:hover .icon path {
-  fill: #ff5828;
-}
-
-.services .iconbox-teal i {
-  color: #11dbcf;
-}
-
-.services .iconbox-teal:hover .icon i {
-  color: #fff;
-}
-
-.services .iconbox-teal:hover .icon path {
-  fill: #11dbcf;
-}
-
-/*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
 .contact .info {
@@ -1017,6 +861,7 @@ section {
 }
 
 /* Titles */
+.contact .info h3,
 .contact .info h4 {
   padding: 0;
   font-size: 22px;
@@ -1033,68 +878,6 @@ section {
   color: var(--textcolor);
 }
 
-/* -- Maps Modal -- */
-
-/* Whole Modal */
-.contact .info .modal .modal-dialog .modal-content {
-  background-color: var(--accentcolor);
-  color: var(--textcolor);
-}
-
-/* Line Separator Modal Header to Body  */
-.contact .info .modal .modal-header {
-  border-bottom: solid var(--textcolor);
-}
-
-/* Close X Button */
-.contact .info .modal .modal-header button {
-  color: var(--contrastcolor);
-}
-
-/* Modal Height to almost all window */
-.contact .info .modal .modal-dialog {
-  height: 90%;
-}
-
-/* Content Inside Modal to Occupy All Modal */
-.contact .info .modal .modal-content {
-  height: 100%;
-}
-
-/* Adjust Map to modal */
-.contact .info .modal .modal-body object, iframe {
-  width: -webkit-fill-available;
-  height: -webkit-fill-available;
-}
-
-/* Separator Modal Body and Footer */
-.contact .info .modal .modal-footer {
-  border-top: solid var(--textcolor);
-}
-
-/* Bottom Buttons */
-.contact .info .modal .btn-primary {
-  background-color: var(--maincolor);
-  color: var(--textcolor);
-  border-color: var(--maincolor);
-}
-
-.contact .info .modal .btn-primary:hover {
-  background-color: rgba(var(--maincolorRGB), 0.9);
-  color: var(--contrastcolor);
-  border-color: var(--maincolor);
-}
-
-.contact .info .modal .btn-outline-secondary {
-  color: var(--textcolor);
-  border-color: var(--textcolor);
-}
-
-.contact .info .modal .btn-outline-secondary:hover {
-  background-color: rgba(var(--maincolorRGB), 0.2);
-  color: var(--contrastcolor);
-}
-
 .contact .info .email,
 .contact .info .phone {
   margin-top: 0;
@@ -1107,24 +890,12 @@ section {
   color: var(--contrastcolor);
 }
 
-@-webkit-keyframes animate-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animate-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+/* The card text lives in a <p> inside the anchor, and `.contact .info p`
+   (0,2,1) outranks a plain `a:hover` (0,1,1) — so the hover colour has to
+   be stated at matching specificity or the text stays cream. */
+.contact .info a:hover p,
+.contact .info a:focus-visible p {
+  color: var(--contrastcolor);
 }
 
 /*--------------------------------------------------------------
@@ -1218,17 +989,6 @@ section {
   margin-right: auto;
 }
 
-/* About / hero supporting text */
-.hero-role {
-  font-size: 1.05rem;
-  letter-spacing: 0.02em;
-  margin-top: 0.75rem;
-}
-
-.hero-stack {
-  margin-top: 1.1rem;
-}
-
 /* Technology stack cards */
 .skill-group {
   height: 100%;
@@ -1241,6 +1001,7 @@ section {
               box-shadow 0.2s ease-in-out;
 }
 
+.skill-group h3,
 .skill-group h4 {
   display: flex;
   align-items: center;
@@ -1251,6 +1012,7 @@ section {
   font-weight: 700;
 }
 
+.skill-group h3 i,
 .skill-group h4 i {
   color: var(--textcolor);
 }
@@ -1298,9 +1060,13 @@ section {
   color: var(--contrastcolor);
 }
 
+.case-study h3,
 .case-study h4 {
   margin-bottom: 0.9rem;
   color: var(--contrastcolor);
+  /* Pinned to Bootstrap's h4 size, which is what this rendered at before the
+     selector accepted h3 too. */
+  font-size: 1.5rem;
   font-weight: 700;
 }
 
@@ -1341,11 +1107,6 @@ section {
   font-weight: 700;
 }
 
-/* Keep the existing web project previews driven by their image dimensions */
-.portfolio .portfolio-item {
-  margin-bottom: 30px;
-}
-
 .portfolio .portfolio-wrap img {
   display: block;
   width: 100%;
@@ -1361,9 +1122,13 @@ section {
   background: rgba(var(--accentcolorRGB), 0.9);
 }
 
-.portfolio-icon-thumb {
-  font-size: 4.5rem;
-  color: var(--textcolor);
+/* Logo shown in place of a screenshot on the icon-style project card. Needs the
+   .portfolio-wrap prefix to outweigh the `img { width: 100% }` rule above, which
+   was stretching the logo to the full width of the card. */
+.portfolio .portfolio-wrap .portfolio-logo-thumb {
+  width: 6rem;
+  max-width: 40%;
+  height: auto;
 }
 
 /* Contact cards */

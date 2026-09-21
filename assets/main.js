@@ -143,54 +143,6 @@
     });
 
     /**
-     * Preloader
-     */
-    let preloader = select('#preloader');
-    if (preloader) {
-        const removePreloader = () => preloader.remove();
-        window.addEventListener('load', removePreloader);
-        // Safety net: never let the preloader block the page if 'load'
-        // is delayed by a slow/blocked third-party asset.
-        setTimeout(removePreloader, 4000);
-    }
-
-    /**
-     * Porfolio isotope and filter
-     * Only initialize Isotope when a filter bar actually exists on the page —
-     * otherwise it takes absolute-position control of the grid and overrides
-     * Bootstrap's own centering/layout for no reason.
-     */
-    window.addEventListener('load', () => {
-        let portfolioContainer = select('.portfolio-container');
-        let portfolioFiltersBar = select('#portfolio-flters');
-
-        if (portfolioContainer && portfolioFiltersBar && typeof Isotope !== 'undefined') {
-            let portfolioIsotope = new Isotope(portfolioContainer, {
-                itemSelector: '.portfolio-item'
-            });
-
-            let portfolioFilters = select('#portfolio-flters li', true);
-
-            on('click', '#portfolio-flters li', function(e) {
-                e.preventDefault();
-                portfolioFilters.forEach(function(el) {
-                    el.classList.remove('filter-active');
-                });
-                this.classList.add('filter-active');
-
-                portfolioIsotope.arrange({
-                    filter: this.getAttribute('data-filter')
-                });
-                portfolioIsotope.on('arrangeComplete', function() {
-                    if (typeof AOS !== 'undefined') AOS.refresh()
-                });
-            }, true);
-        }
-
-    });
-
-
-    /**
      * Initiate portfolio lightbox(es)
      * Deferred to window 'load' so this runs after glightbox.min.js has
      * definitely finished loading, regardless of script order/timing.
@@ -198,11 +150,9 @@
     window.addEventListener('load', () => {
         if (typeof GLightbox === 'undefined') return;
 
-        GLightbox({
-            selector: '.portfolio-lightbox'
-        });
-
-        GLightbox({
+        // Exposed on window so a project page loaded in the overlay's iframe
+        // can reach it from window.top (see the back link handler below).
+        window.portfolioLightbox = GLightbox({
             selector: '.portfolio-details-lightbox',
             width: '90%',
             height: '90vh'
@@ -210,10 +160,26 @@
     });
 
     /**
+     * "Back to portfolio" link on the project pages.
+     */
+    on('click', '.project-back a', function (e) {
+        if (window.self === window.top) return;
+
+        let parentLightbox;
+        try {
+            parentLightbox = window.top.portfolioLightbox;
+        } catch (err) {
+            return; // Different origin: leave the default behaviour alone.
+        }
+        if (!parentLightbox) return;
+
+        e.preventDefault();
+        parentLightbox.close();
+        if (this.hash) window.top.location.hash = this.hash;
+    });
+
+    /**
      * Portfolio details slider
-     * Only present on pages that load Swiper (e.g. elboncami.html,
-     * personal-portfolio.html) — guarded so index.html, which doesn't
-     * load Swiper, doesn't throw a "Swiper is not defined" error.
      */
     window.addEventListener('load', () => {
         if (typeof Swiper === 'undefined') return;
@@ -269,39 +235,16 @@
                 once: true,
                 mirror: false
             })
+            return;
         }
+
+        // aos.css parks every [data-aos] element at opacity: 0 and waits for
+        // aos.js to add .aos-animate. If the stylesheet lands but the script
+        // doesn't (CDN outage, SRI mismatch, blocked request), the whole page
+        // stays blank. Those rules are attribute selectors, so dropping the
+        // attribute is enough to get the content back.
+        select('[data-aos]', true).forEach((el) => el.removeAttribute('data-aos'));
     });
-
-    /*
-     * Calculate Age Automatically
-     * window.addEventListener('load', () => {
-     *     const ageEl = document.getElementById("currentAge");
-     *     if (!ageEl) return;
-     *
-     *     // Obtener fecha local en zona horaria de Madrid
-     *     const nowInMadrid = new Date(
-     *         new Date().toLocaleString('en-US', { timeZone: 'Europe/Madrid' })
-     *     );
-     *
-     *     const birthYear = 1999;
-     *     const birthMonth = 6; // Julio (mes 6 en JS)
-     *     const birthDay = 3;
-     *
-     *     let age = nowInMadrid.getFullYear() - birthYear;
-     *
-     *     const hasBirthdayPassed = (
-     *         nowInMadrid.getMonth() > birthMonth ||
-     *         (nowInMadrid.getMonth() === birthMonth && nowInMadrid.getDate() >= birthDay)
-     *     );
-     *
-     *     if (!hasBirthdayPassed) {
-     *         age -= 1;
-     *     }
-     *
-     *     ageEl.textContent = age.toString();
-     * });
-     */
-
 
     /**
      * Auto-updating "X+ years" experience/duration labels.
@@ -334,22 +277,22 @@
     });
 
     /**
-     * Update all email class to mailto Automatically
+     * Update all email class to mailto Automatically.
+     * `.noTextA` anchors keep their own markup (icon, heading); those that
+     * need the address rendered inside them use a nested `.mailto-text`
+     * element, so the anchor itself is never flattened to plain text.
      */
     window.addEventListener('DOMContentLoaded', () => {
-        let currentMail = "oscar.lopezconde@outlook.com";
-        let anchors = select('a.mailto', true);
+        const currentMail = "oscar.lopezconde@outlook.com";
 
-        for(const element of anchors) {
-            if (element.classList.contains("mail-schedule")){
-                element.setAttribute("href", ("mailto:" + currentMail + "?subject=I%20would%20like%20to%20Schedule%20a%20call"));
-                element.textContent = "Schedule a Call!"
-            }
-            else {
-                element.setAttribute("href", ("mailto:" + currentMail));
-                if (!(element.classList.contains("noTextA"))) element.textContent = currentMail;
-            }
-        }
+        select('a.mailto', true).forEach((el) => {
+            el.setAttribute('href', 'mailto:' + currentMail);
+            if (!el.classList.contains('noTextA')) el.textContent = currentMail;
+        });
+
+        select('.mailto-text', true).forEach((el) => {
+            el.textContent = currentMail;
+        });
     });
 
 })()

@@ -5,25 +5,29 @@
   <!-- Classic Meta Declarations -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta name="description" content="El Bon Camí — RV e-commerce website project by Oscar Lopez, built in WordPress and WooCommerce with Elementor.">
+  <meta name="description" content="El Bon Camí: RV e-commerce website project by Oscar Lopez, built in WordPress and WooCommerce with Elementor.">
   <meta name="keywords" content="El Bon Camí, RV rental, WordPress, WooCommerce, Elementor">
+  <meta name="author" content="Oscar Lopez">
   <link rel="canonical" href="https://ocr99.github.io/portfolio/pages/projects/elboncami.html">
 
   <!-- Open Graph -->
   <meta property="og:title" content="El Bon Camí | Oscar Lopez">
-  <meta property="og:description" content="El Bon Camí — RV e-commerce website project by Oscar Lopez, built in WordPress and WooCommerce with Elementor.">
+  <meta property="og:description" content="El Bon Camí: RV e-commerce website project by Oscar Lopez, built in WordPress and WooCommerce with Elementor.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ocr99.github.io/portfolio/pages/projects/elboncami.html">
   <meta property="og:image" content="https://ocr99.github.io/portfolio/assets/img/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Oscar Lopez Portfolio">
+  <meta property="og:image:alt" content="Oscar Lopez, Business Intelligence Developer">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="El Bon Camí | Oscar Lopez">
-  <meta name="twitter:description" content="El Bon Camí — RV e-commerce website project by Oscar Lopez, built in WordPress and WooCommerce with Elementor.">
+  <meta name="twitter:description" content="El Bon Camí: RV e-commerce website project by Oscar Lopez, built in WordPress and WooCommerce with Elementor.">
   <meta name="twitter:image" content="https://ocr99.github.io/portfolio/assets/img/og-image.jpg">
+  <meta name="twitter:image:alt" content="Oscar Lopez, Business Intelligence Developer">
 
   <!-- Site Manifest -->
   <link rel="manifest" href="../../assets/site.webmanifest">
@@ -35,24 +39,49 @@
 
   <!-- Import Bootstrap and main css and js files -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-  <!-- AOS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" integrity="sha384-xeJqLiuOvjUBq3iGOjvSQSIlwrpqjSHXpduPd6rQpuiM3f5/ijby8pCsnbu5S81n" crossorigin="anonymous">
 
   <!-- Swiper Bundle -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-  <script defer src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-
-  <!-- Glightbox Bundle -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/css/glightbox.min.css" />
-  <script defer src="https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/js/glightbox.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.css" integrity="sha384-OVtDJ2WfU22geHR8xWErSSHJMaH21QOP9w33a+A2MzyE4uxDS2/5rhIw9YZkWv5R" crossorigin="anonymous"/>
+  <script defer src="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.js" integrity="sha384-kLg4yw7ysk2F34aYhHIrdq/AXIkHzZ808L3af45jUqWQoMPN8VnJneCjOR8+THSG" crossorigin="anonymous"></script>
 
   <!-- Main CSS -->
   <link href="../../assets/styles.css" rel="stylesheet">
 
   <!-- Title -->
   <title>El Bon Camí | Oscar Lopez</title>
+
+  <!-- Structured Data: project + breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CreativeWork",
+        "name": "El Bon Camí",
+        "description": "RV e-commerce website built in WordPress and WooCommerce with Elementor, including reservations, card payments and customer accounts.",
+        "url": "https://ocr99.github.io/portfolio/pages/projects/elboncami.html",
+        "image": "https://ocr99.github.io/portfolio/assets/img/og-image.jpg",
+        "dateCreated": "2021-03-13",
+        "inLanguage": "en",
+        "keywords": "WordPress, WooCommerce, Elementor, E-commerce",
+        "author": {
+          "@type": "Person",
+          "name": "Oscar Lopez",
+          "url": "https://ocr99.github.io/portfolio/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ocr99.github.io/portfolio/" },
+          { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://ocr99.github.io/portfolio/pages/aboutme.html#portfolio" },
+          { "@type": "ListItem", "position": 3, "name": "El Bon Camí" }
+        ]
+      }
+    ]
+  }
+  </script>
 
 </head>
 
@@ -64,6 +93,14 @@
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
 
+        <!-- target="_top" handles the standalone case. Opened inside the portfolio
+                  lightbox, main.js intercepts this and closes the overlay instead. -->
+        <p class="project-back">
+          <a href="../aboutme.html#portfolio" target="_top">
+            <i class="bi bi-arrow-left-short" aria-hidden="true"></i> Back to portfolio
+          </a>
+        </p>
+
         <div class="row gy-4">
 
           <div class="col-lg-8">
@@ -74,23 +111,23 @@
                 <div class="swiper-wrapper align-items-center">
 
                   <div class="swiper-slide">
-                    <img src="../../assets/img/elboncami-img-1.png" alt="El Bon Camí homepage screenshot" loading="lazy" decoding="async">
+                    <img src="../../assets/img/elboncami-img-1.webp" alt="El Bon Camí homepage screenshot" width="1600" height="892" decoding="async">
                   </div>
 
                   <div class="swiper-slide">
-                    <img src="../../assets/img/elboncami-img-2.png" alt="El Bon Camí vehicle listing page screenshot" loading="lazy" decoding="async">
+                    <img src="../../assets/img/elboncami-img-2.webp" alt="El Bon Camí vehicle listing page screenshot" width="1600" height="895" loading="lazy" decoding="async">
                   </div>
 
                   <div class="swiper-slide">
-                    <img src="../../assets/img/elboncami-img-3.png" alt="El Bon Camí booking calendar screenshot" loading="lazy" decoding="async">
+                    <img src="../../assets/img/elboncami-img-3.webp" alt="El Bon Camí booking calendar screenshot" width="1600" height="953" loading="lazy" decoding="async">
                   </div>
 
                   <div class="swiper-slide">
-                    <img src="../../assets/img/elboncami-img-4.png" alt="El Bon Camí checkout page screenshot" loading="lazy" decoding="async">
+                    <img src="../../assets/img/elboncami-img-4.webp" alt="El Bon Camí checkout page screenshot" width="1600" height="926" loading="lazy" decoding="async">
                   </div>
 
                   <div class="swiper-slide">
-                    <img src="../../assets/img/elboncami-img-5.png" alt="El Bon Camí account page screenshot" loading="lazy" decoding="async">
+                    <img src="../../assets/img/elboncami-img-5.webp" alt="El Bon Camí account page screenshot" width="1600" height="917" loading="lazy" decoding="async">
                   </div>
 
                 </div>
@@ -108,7 +145,7 @@
               <ul>
                 <li><strong>Category</strong>: E-commerce</li>
                 <li><strong>Client</strong>: RV Company: El Bon Camí</li>
-                <li><strong>Project date</strong>: 13 March 2020</li>
+                <li><strong>Project date</strong>: 13 March 2021</li>
                 <li><strong>Project URL</strong>: <a href="https://elboncami.com/" target="_blank" rel="noopener noreferrer">elboncami.com</a></li>
               </ul>
             </div>
@@ -130,17 +167,10 @@
   </main>
   <!-- End #main -->
 
-  <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
 
   <!-- SCRIPT FILES -->
   <script src="../../assets/main.js" defer></script>
-
-  <!-- ==========Import Extra Libraries========== -->
-  <!-- AOS -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
-  <!-- Isotope -->
-  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js" defer></script>
 </body>
 
 </html>
