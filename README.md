@@ -60,6 +60,10 @@ Styling is plain CSS with custom properties. The whole site runs on four colours
 --contrastcolor: #F1F1F1; /* highlights          */
 ```
 
+## Languages
+
+The site speaks English, Spanish and Catalan. English lives in the HTML itself, and `assets/i18n.js` picks Spanish or Catalan from the browser language (or from the switcher, which remembers the choice) and swaps the texts in from `assets/i18n/es.js` and `ca.js`. Anything missing from a dictionary stays in English, and so does the whole page if the dictionary doesn't load.
+
 ## Structure
 
 ```
@@ -71,6 +75,8 @@ Styling is plain CSS with custom properties. The whole site runs on four colours
 ├── assets/
 │   ├── styles.css              All the styling
 │   ├── main.js                 All the behaviour
+│   ├── i18n.js                 Language detection and switcher
+│   ├── i18n/                   Spanish and Catalan texts
 │   ├── site.webmanifest
 │   ├── img/                    WebP screenshots and headshot
 │   ├── favicon/

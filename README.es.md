@@ -60,6 +60,10 @@ Los estilos son CSS plano con custom properties. Toda la web funciona con cuatro
 --contrastcolor: #F1F1F1; /* resaltados            */
 ```
 
+## Idiomas
+
+La web está en inglés, español y catalán. El inglés vive en el propio HTML, y `assets/i18n.js` elige español o catalán según el idioma del navegador (o el selector, que recuerda la elección) y cambia los textos por los de `assets/i18n/es.js` y `ca.js`. Lo que falte en un diccionario se queda en inglés, y la página entera también si el diccionario no carga.
+
 ## Estructura
 
 ```
@@ -71,6 +75,8 @@ Los estilos son CSS plano con custom properties. Toda la web funciona con cuatro
 ├── assets/
 │   ├── styles.css              Todos los estilos
 │   ├── main.js                 Todo el comportamiento
+│   ├── i18n.js                 Detección de idioma y selector
+│   ├── i18n/                   Textos en español y catalán
 │   ├── site.webmanifest
 │   ├── img/                    Capturas y retrato en WebP
 │   ├── favicon/
