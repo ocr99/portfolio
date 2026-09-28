@@ -25,19 +25,25 @@
         <!-- Main CSS -->
         <link href="/portfolio/assets/styles.css" rel="stylesheet">
 
+        <!-- Language: picks EN/ES/CA before the first paint, so no defer -->
+        <script src="/portfolio/assets/i18n.js"></script>
+
         <!-- Title -->
-        <title>Page not found | Oscar Lopez</title>
+        <title data-i18n="notfound.title">Page not found | Oscar Lopez</title>
     </head>
     <body>
+        <!-- Language switcher, rendered by i18n.js -->
+        <div data-lang-switch></div>
+
         <main class="d-flex flex-column justify-content-center align-items-center text-center min-vh-100 px-3">
             <h1 class="text-break fw-bold">
                 <span class="blink contrastcolor">&GT;</span> 404
             </h1>
             <p class="fs-4 font-monospace pt-2">
-                <span class="blink contrastcolor">&GT;</span> This page doesn't exist.
+                <span class="blink contrastcolor">&GT;</span> <span data-i18n="notfound.message">This page doesn't exist.</span>
             </p>
             <div class="pt-4">
-                <a href="/portfolio/" class="knowme fw-bold">Back to the portfolio</a>
+                <a href="/portfolio/" class="knowme fw-bold" data-i18n="notfound.back">Back to the portfolio</a>
             </div>
         </main>
     </body>
