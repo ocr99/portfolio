@@ -594,9 +594,14 @@ section {
 }
 
 /* Title Case is an English habit; in Spanish and Catalan it reads as
-   "Comercial De Philips", so the translated titles keep their own casing. */
+   "Comercial De Philips", so the translated titles keep their own casing.
+   Bootstrap's .text-capitalize (project page headings) needs !important. */
 .resume .resume-item h4:is(:lang(es), :lang(ca)) {
   text-transform: none;
+}
+
+.text-capitalize:is(:lang(es), :lang(ca)) {
+  text-transform: none !important;
 }
 
 /* Years in resume */

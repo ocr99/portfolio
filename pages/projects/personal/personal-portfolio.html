@@ -53,7 +53,7 @@
   <script src="../../../assets/i18n.js"></script>
 
   <!-- Title -->
-  <title>Personal Portfolio | Oscar Lopez</title>
+  <title data-i18n="portfolio.title">Personal Portfolio | Oscar Lopez</title>
 
   <!-- Structured Data: project + breadcrumb -->
   <script type="application/ld+json">
@@ -101,29 +101,29 @@
                   lightbox, main.js intercepts this and closes the overlay instead. -->
         <p class="project-back">
           <a href="../../aboutme.html#portfolio" target="_top">
-            <i class="bi bi-arrow-left-short" aria-hidden="true"></i> Back to portfolio
+            <i class="bi bi-arrow-left-short" aria-hidden="true"></i> <span data-i18n="project.back">Back to portfolio</span>
           </a>
         </p>
 
         <div class="row gy-4">
 
           <div class="col-lg-8">
-            <h1 class="text-center fs-1 fw-bold font-monospace"><span class="blink contrastcolor">&GT;</span> Personal Portfolio</h1>
+            <h1 class="text-center fs-1 fw-bold font-monospace"><span class="blink contrastcolor">&GT;</span> <span data-i18n="about.projects.portfolio">Personal Portfolio</span></h1>
             <div class="hover-wrapper">
 
               <div class="portfolio-details-slider swiper">
                 <div class="swiper-wrapper align-items-center">
 
                   <div class="swiper-slide">
-                    <img src="../../../assets/img/portfolio-img-1.webp" alt="Personal portfolio homepage screenshot" width="1600" height="768" decoding="async">
+                    <img src="../../../assets/img/portfolio-img-1.webp" alt="Personal portfolio homepage screenshot" data-i18n-attr="alt:portfolio.shot1" width="1600" height="768" decoding="async">
                   </div>
 
                   <div class="swiper-slide">
-                    <img src="../../../assets/img/portfolio-img-2.webp" alt="Personal portfolio about section screenshot" width="1600" height="685" loading="lazy" decoding="async">
+                    <img src="../../../assets/img/portfolio-img-2.webp" alt="Personal portfolio about section screenshot" data-i18n-attr="alt:portfolio.shot2" width="1600" height="685" loading="lazy" decoding="async">
                   </div>
 
                   <div class="swiper-slide">
-                    <img src="../../../assets/img/portfolio-img-3.webp" alt="Personal portfolio projects section screenshot" width="1600" height="589" loading="lazy" decoding="async">
+                    <img src="../../../assets/img/portfolio-img-3.webp" alt="Personal portfolio projects section screenshot" data-i18n-attr="alt:portfolio.shot3" width="1600" height="589" loading="lazy" decoding="async">
                   </div>
 
                 </div>
@@ -137,17 +137,17 @@
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h2><span class="blink contrastcolor">&GT;</span> Project information</h2>
+              <h2><span class="blink contrastcolor">&GT;</span> <span data-i18n="project.info">Project information</span></h2>
               <ul>
-                <li><strong>Category</strong>: Web design</li>
-                <li><strong>Client</strong>: Personal Project</li>
-                <li><strong>Project date</strong>: 10 October, 2022</li>
-                <li><strong>Project URL</strong>: <a href="https://ocr99.github.io/portfolio/" target="_blank" rel="noopener noreferrer">ocr99.github.io/portfolio</a></li>
+                <li><strong data-i18n="project.category">Category</strong>: <span data-i18n="portfolio.category">Web design</span></li>
+                <li><strong data-i18n="project.client">Client</strong>: <span data-i18n="portfolio.client">Personal Project</span></li>
+                <li><strong data-i18n="project.date">Project date</strong>: <span data-i18n="portfolio.date">10 October, 2022</span></li>
+                <li><strong data-i18n="project.url">Project URL</strong>: <a href="https://ocr99.github.io/portfolio/" target="_blank" rel="noopener noreferrer">ocr99.github.io/portfolio</a></li>
               </ul>
             </div>
             <div class="portfolio-description">
-              <h2 class="text-capitalize"><span class="blink contrastcolor">&GT;</span> This is my custom web portfolio</h2>
-              <p>
+              <h2 class="text-capitalize"><span class="blink contrastcolor">&GT;</span> <span data-i18n="portfolio.heading">This is my custom web portfolio</span></h2>
+              <p data-i18n="portfolio.description">
                 This is a web portfolio completely created from scratch in HTML, CSS &amp; JavaScript, using also Bootstrap and various
                 other JS libraries to further improve the page. This was my first solo project combining different languages.
               </p>
@@ -163,7 +163,7 @@
   </main>
   <!-- End #main -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" aria-label="Back to top" data-i18n-attr="aria-label:common.backToTop"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
 
   <!-- SCRIPT FILES -->
   <script src="../../../assets/main.js" defer></script>
