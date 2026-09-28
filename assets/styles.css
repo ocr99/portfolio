@@ -593,6 +593,12 @@ section {
   margin-bottom: 10px;
 }
 
+/* Title Case is an English habit; in Spanish and Catalan it reads as
+   "Comercial De Philips", so the translated titles keep their own casing. */
+.resume .resume-item h4:is(:lang(es), :lang(ca)) {
+  text-transform: none;
+}
+
 /* Years in resume */
 .resume .resume-item h5 {
   font-size: 16px;
