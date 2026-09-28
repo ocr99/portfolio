@@ -36,6 +36,12 @@
     }
 
     /**
+     * Text in the current page language (see i18n.js), or the English
+     * fallback when the page is in English or i18n.js didn't load.
+     */
+    const t = (key, fallback) => window.portfolioI18n ? window.portfolioI18n.t(key, fallback) : fallback
+
+    /**
      * Navbar links active state on scroll
      */
     let navbarlinks = select('#navbar .scrollto', true)
@@ -204,6 +210,14 @@
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
+            // Swiper writes its own aria-labels over the ones in the HTML.
+            // The project pages have no language switcher, so the language
+            // is already settled by the time this runs on 'load'.
+            a11y: {
+                prevSlideMessage: t('project.slider.prev', 'Previous image'),
+                nextSlideMessage: t('project.slider.next', 'Next image'),
+                paginationBulletMessage: t('project.slider.goTo', 'Go to image {{index}}'),
+            },
         });
 
         /**
@@ -250,9 +264,10 @@
      * Auto-updating "X+ years" experience/duration labels.
      * Add data-years-since="YYYY-MM-DD" to any element and its text content
      * gets replaced with "N+ years" (or "N years" if data-years-exact is set),
-     * calculated from that date to "now" in Madrid time.
+     * calculated from that date to "now" in Madrid time. The unit follows the
+     * page language, so the labels are rendered again on every switch.
      */
-    window.addEventListener('DOMContentLoaded', () => {
+    const renderYears = () => {
         const targets = select('[data-years-since]', true);
         if (!targets.length) return;
 
@@ -272,8 +287,22 @@
             if (!hasAnniversaryPassed) years -= 1;
 
             const suffix = el.hasAttribute('data-years-exact') ? '' : '+';
-            el.textContent = `${years}${suffix} year${years === 1 ? '' : 's'}`;
+            const unit = years === 1 ? t('common.year', 'year') : t('common.years', 'years');
+            el.textContent = `${years}${suffix} ${unit}`;
         });
+    };
+    window.addEventListener('DOMContentLoaded', renderYears);
+    document.addEventListener('i18n:change', renderYears);
+
+    /**
+     * CV modal: preselect the Spanish CV when the page is in Spanish or
+     * Catalan, the English one otherwise. Only on a language change, so a tab
+     * picked by hand stays picked between openings of the modal.
+     */
+    document.addEventListener('i18n:change', (e) => {
+        const tab = select(e.detail.lang === 'en' ? '#cv-en-tab' : '#cv-es-tab');
+        if (!tab || typeof bootstrap === 'undefined') return;
+        bootstrap.Tab.getOrCreateInstance(tab).show();
     });
 
     /**

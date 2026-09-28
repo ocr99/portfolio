@@ -11,6 +11,8 @@ window.portfolioI18n.register('ca', {
     'common.location': 'Barcelona, Espanya',
     'common.close': 'Tancar',
     'common.backToTop': 'Tornar a dalt',
+    'common.year': 'any',
+    'common.years': 'anys',
 
     // Landing (index.html)
     'home.title': 'Oscar Lopez | Business Intelligence Developer a Barcelona',
@@ -36,7 +38,7 @@ window.portfolioI18n.register('ca', {
     'about.label.experience': 'Experiència:',
     'about.label.meeting': 'Reunió:',
     'about.biAnalytics': 'BI i analítica',
-    'about.inTech': 'en tecnologia',
+    'about.inTech': 'al sector tecnològic',
     'about.scheduleCall': 'Programa una trucada',
     'about.intro.p1': 'Dissenyo i desenvolupo solucions de Business Intelligence que converteixen les dades operatives en informació fiable i accionable. La meva feina cobreix tot el recorregut: des de la transformació i el modelatge de dades fins a la lògica de KPIs, els models semàntics i el lliurament del dashboard final.',
     'about.intro.p2': 'Treballo sobretot amb <strong>Power BI, Domo i SQL</strong>, i tinc experiència amb <strong>Power Query, Databricks i Azure Analysis Services</strong>. El meu objectiu és construir solucions de reporting tècnicament sòlides, comprensibles i fiables.',
@@ -122,6 +124,9 @@ window.portfolioI18n.register('ca', {
     'project.role': 'Rol',
     'project.runningSince': 'Antiguitat',
     'project.host': 'Servidor',
+    'project.slider.prev': 'Imatge anterior',
+    'project.slider.next': 'Imatge següent',
+    'project.slider.goTo': 'Anar a la imatge {{index}}',
 
     // Homelab
     'homelab.lead': 'Infraestructura self-hosted personal que he dissenyat, desplegat i mantingut durant',
