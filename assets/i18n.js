@@ -184,7 +184,7 @@
      */
     const LANG_NAMES = { en: 'English', es: 'Español', ca: 'Català' };
     const SWITCH_LABELS = { en: 'Language', es: 'Idioma', ca: 'Idioma' };
-    const TOGGLE_LABELS = { en: 'Change language', es: 'Cambiar idioma', ca: 'Canviar idioma' };
+    const TOGGLE_LABELS = { en: 'Change language', es: 'Cambiar idioma', ca: 'Canvia l\'idioma' };
     // How long a collapsible pill stays open after a pick, so the new active
     // language is seen before it folds back into the globe.
     const COLLAPSE_DELAY_MS = 700;
