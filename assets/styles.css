@@ -61,6 +61,14 @@ a:hover {
 # Main Page
 --------------------------------------------------------------*/
 
+/* On phones the landing content starts right at the top, under the fixed
+   language switcher; leave it some room. */
+@media (max-width: 767.98px) {
+  #presentation {
+    padding-top: 2rem;
+  }
+}
+
 .knowme {
   border: 2px solid var(--accentcolor);
   border-radius: 3rem;
@@ -143,6 +151,160 @@ a:hover {
 .back-to-top.active {
   visibility: visible;
   opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Language switcher (rendered by i18n.js)
+--------------------------------------------------------------*/
+.lang-switch {
+  position: fixed;
+  top: 12px;
+  right: 15px;
+  /* Under the mobile side menu (#header, 9997), so an open menu covers it. */
+  z-index: 9996;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  font-family: var(--bs-font-monospace);
+  font-size: 0.85rem;
+  background-color: rgba(var(--maincolorRGB), 0.85);
+  border: 2px solid var(--accentcolor);
+  border-radius: 3rem;
+  backdrop-filter: blur(6px);
+}
+
+.lang-switch-options {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.lang-switch-list {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+/* Spacing lives on the children, not as padding on the list: padding would
+   still take room once the collapsible variant shrinks the list to zero. */
+.lang-switch .blink {
+  margin: 0 6px 0 9px;
+}
+
+.lang-switch-list button:last-child {
+  margin-right: 1px;
+}
+
+.lang-switch button {
+  border: 0;
+  border-radius: 3rem;
+  padding: 0.3rem 0.7rem;
+  background: none;
+  color: var(--textcolor);
+  font: inherit;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.lang-switch button:hover {
+  color: var(--contrastcolor);
+  background-color: var(--accentcolor);
+}
+
+/* Same inverted colours as the "Get to Know Me" button. */
+.lang-switch button[aria-pressed="true"] {
+  color: var(--maincolor);
+  background-color: var(--textcolor);
+  cursor: default;
+}
+
+/* Inset, so the collapsible variant's clipping can't cut the ring off. */
+.lang-switch button:focus-visible {
+  outline: 2px solid var(--contrastcolor);
+  outline-offset: -2px;
+}
+
+/* Collapsible variant: only the globe shows until it's clicked, then the
+   list slides out to its left. `visibility` flips at the end of the closing
+   transition, which also takes the hidden buttons out of the tab order. */
+.lang-switch--collapsible .lang-switch-options {
+  grid-template-columns: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition: grid-template-columns 0.35s ease, opacity 0.2s ease, visibility 0s linear 0.35s;
+}
+
+.lang-switch--collapsible.is-open .lang-switch-options {
+  grid-template-columns: 1fr;
+  opacity: 1;
+  visibility: visible;
+  transition: grid-template-columns 0.35s ease, opacity 0.25s ease 0.1s, visibility 0s;
+}
+
+.lang-switch--collapsible .lang-switch-list {
+  overflow: hidden;
+}
+
+/* A little breathing room between the last language and the globe. */
+.lang-switch--collapsible .lang-switch-list button:last-child {
+  margin-right: 5px;
+}
+
+.lang-switch .lang-switch-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: background-color 0.2s, color 0.2s, transform 0.5s ease;
+}
+
+.lang-switch--collapsible.is-open .lang-switch-toggle {
+  color: var(--contrastcolor);
+  background-color: var(--accentcolor);
+  transform: rotate(360deg);
+}
+
+/* On the about page the hamburger sits at the top right until 1200px. */
+@media (max-width: 1199.98px) {
+  .mobile-nav-toggle ~ .lang-switch {
+    right: 60px;
+  }
+}
+
+/* Inline variant, inside the about page's side menu: a full-width row under
+   the nav links, only while that menu is the mobile slide-out panel. */
+.lang-switch--inline {
+  display: none;
+  position: static;
+  justify-content: center;
+  margin-top: 8px;
+  padding: 6px;
+  font-size: 0.95rem;
+  backdrop-filter: none;
+}
+
+.lang-switch--inline button {
+  padding: 0.45rem 0.9rem;
+}
+
+/* Same breakpoint as the #header panel. The corner pill would otherwise
+   float over the page on every scroll, so it moves into the menu. */
+@media (max-width: 992px) {
+  .lang-switch--inline {
+    display: flex;
+  }
+
+  .mobile-nav-toggle ~ .lang-switch {
+    display: none;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -363,6 +525,11 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
+/* First section of the page: a bit more room under the fixed language switcher. */
+#about {
+  padding-top: 76px;
+}
+
 .about .content h3 {
   font-weight: 700;
   font-size: 26px;

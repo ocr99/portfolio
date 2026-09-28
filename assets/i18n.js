@@ -173,11 +173,121 @@
     };
 
     /**
+     * Language switcher: a "> EN ES CA" pill rendered in place of every
+     * [data-lang-switch] placeholder. Built here rather than in the HTML so
+     * visitors without JS don't get a control that can't work.
+     *
+     * data-lang-switch="collapsible" folds the pill into a globe button that
+     * slides it open on click (used on the landing page, where it matters less).
+     * data-lang-switch="inline" keeps it in the flow instead of fixed to the
+     * corner (used inside the about page's mobile side menu).
+     */
+    const LANG_NAMES = { en: 'English', es: 'Español', ca: 'Català' };
+    const SWITCH_LABELS = { en: 'Language', es: 'Idioma', ca: 'Idioma' };
+    const TOGGLE_LABELS = { en: 'Change language', es: 'Cambiar idioma', ca: 'Canviar idioma' };
+    // How long a collapsible pill stays open after a pick, so the new active
+    // language is seen before it folds back into the globe.
+    const COLLAPSE_DELAY_MS = 700;
+    let switcherCount = 0;
+
+    const syncSwitchers = () => {
+        document.querySelectorAll('.lang-switch').forEach((nav) => {
+            nav.setAttribute('aria-label', SWITCH_LABELS[current]);
+            nav.querySelectorAll('.lang-switch-list button').forEach((button) => {
+                button.setAttribute('aria-pressed', String(button.lang === current));
+            });
+            const toggle = nav.querySelector('.lang-switch-toggle');
+            if (toggle) toggle.setAttribute('aria-label', TOGGLE_LABELS[current]);
+        });
+    };
+
+    const makeCollapsible = (nav, options) => {
+        options.id = 'lang-switch-options-' + (++switcherCount);
+        nav.classList.add('lang-switch--collapsible');
+
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'lang-switch-toggle';
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-controls', options.id);
+        toggle.innerHTML = '<i class="bi bi-globe2" aria-hidden="true"></i>';
+        nav.appendChild(toggle);
+
+        let closeTimer;
+        const setOpen = (open) => {
+            clearTimeout(closeTimer);
+            // The language buttons turn invisible when closed; don't let
+            // keyboard focus fall off the page with them.
+            if (!open && options.contains(document.activeElement)) toggle.focus();
+            nav.classList.toggle('is-open', open);
+            toggle.setAttribute('aria-expanded', String(open));
+        };
+        const isOpen = () => nav.classList.contains('is-open');
+
+        toggle.addEventListener('click', () => setOpen(!isOpen()));
+        options.addEventListener('click', (e) => {
+            if (e.target.closest('button')) closeTimer = setTimeout(() => setOpen(false), COLLAPSE_DELAY_MS);
+        });
+        document.addEventListener('click', (e) => {
+            if (isOpen() && !nav.contains(e.target)) setOpen(false);
+        });
+        nav.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && isOpen()) setOpen(false);
+        });
+    };
+
+    const renderSwitchers = () => {
+        document.querySelectorAll('[data-lang-switch]').forEach((slot) => {
+            const nav = document.createElement('nav');
+            nav.className = 'lang-switch';
+
+            // Two wrappers so the collapsible variant can animate the width:
+            // a grid going from 0fr to 1fr around a list that clips.
+            const options = document.createElement('div');
+            options.className = 'lang-switch-options';
+            const list = document.createElement('div');
+            list.className = 'lang-switch-list';
+            options.appendChild(list);
+            nav.appendChild(options);
+
+            const prompt = document.createElement('span');
+            prompt.className = 'blink contrastcolor';
+            prompt.setAttribute('aria-hidden', 'true');
+            prompt.textContent = '>';
+            list.appendChild(prompt);
+
+            SUPPORTED.forEach((lang) => {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.lang = lang;
+                button.textContent = lang.toUpperCase();
+                // The full name contains the visible code (EN/English...),
+                // so voice control users can still say what they see.
+                button.setAttribute('aria-label', LANG_NAMES[lang]);
+                button.title = LANG_NAMES[lang];
+                button.addEventListener('click', () => {
+                    if (lang !== current) setLanguage(lang);
+                });
+                list.appendChild(button);
+            });
+
+            const variant = slot.getAttribute('data-lang-switch');
+            if (variant === 'collapsible') makeCollapsible(nav, options);
+            if (variant === 'inline') nav.classList.add('lang-switch--inline');
+            slot.replaceWith(nav);
+        });
+        syncSwitchers();
+    };
+
+    document.addEventListener('i18n:change', syncSwitchers);
+
+    /**
      * Initial pass. English needs nothing: the HTML already is English.
      * Anything else hides the page until the dictionary is in, with a timeout
      * so a slow or failed request ends up in English instead of a blank page.
      */
     const initial = detect();
+    let initialPass = Promise.resolve();
     if (initial !== DEFAULT_LANG) {
         const style = document.createElement('style');
         style.textContent = '.' + PENDING_CLASS + ' body { visibility: hidden; }';
@@ -185,7 +295,7 @@
         root.classList.add(PENDING_CLASS);
 
         const timer = setTimeout(reveal, REVEAL_TIMEOUT_MS);
-        Promise.all([loadDict(initial), domReady])
+        initialPass = Promise.all([loadDict(initial), domReady])
             .then(([dict]) => apply(initial, dict))
             .catch(() => { /* Stay in English. */ })
             .finally(() => {
@@ -193,4 +303,8 @@
                 reveal();
             });
     }
+
+    // Only once the first language is settled, so the pill doesn't start on
+    // EN and fade over to the real one while the page appears.
+    Promise.all([initialPass, domReady]).then(renderSwitchers);
 })();
